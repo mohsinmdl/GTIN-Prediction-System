@@ -1,0 +1,2159 @@
+<!--
+                '''
+             @(#)index.html
+
+                Copyright (c) 2018 - 2020 Majestic International Technologies, Inc.
+                Majestic Technologies, Lahore, Pakistan.
+                All rights reserved.
+
+                This software project is the confidential and proprietary information of
+                Majestic Technologies, Inc. ("Confidential Information").  You shall not
+                disclose such Confidential Information and shall use it only in
+                accordance with the terms of the license agreement you entered into
+                with Majestic.
+             '''
+
+            '''                           +---------+-----------------------------------------------------+
+                                          |  Title  |   Visualization and Result Prediction Of Students   |
+            +-----------------------------+---------+-----------------------------------------------------+---------------------+
+            |
+            | Project              :    Majestic Technologies
+            | Author(s)            :    Sir Rao Adeel Nawab |M. Usman Shafique | Abdur Rauf <raufjavid5@gmail.com>|
+            | Date                 :    16 - April - 2018
+            | Version              :    1.0
+            | Status               :    Active
+            | Technology           :    Python | HTML | CSS | JavaScript | jQuery | Modernizr
+            | IDE                  :    PyCharm
+            | Web Framework        :    Django
+            | Front End Design     :    Bootstrap
+            | Font & Icon Toolkit  :    Font Awesome
+            | License              :    Creative Commons Attribution 3.0 Unported
+            | License URL          :    http://creativecommons.org/licenses/by/3.0/
+            | Author URL           :    MajesticSoftwareHouse.com
+            |
+            +--------------------------------------------------------------------------------------------------------------------+
+
+
+            +----------------------------+---------------------------------------------------------------------------------------+
+            | Purpose of Program/Project | Visualization and Result Prediction of different Students based on their Percentage.
+            +----------------------------+---------------------------------------------------------------------------------------+
+            | Input                      | 1. A training dataset, in which each row contain st_reg_no, St_Name,
+            |                            | class_name, section_name and Percentage.
+            |                            | 2. A dump file of individual class for future predictions.
+            |----------------------------+---------------------------------------------------------------------------------------+
+            | Output                     | 1. Visualization of Data.
+            |                            | 2. Predicted Percentage for each Input Student entry.
+            +----------------------------+---------------------------------------------------------------------------------------+
+
+
+                                                                +-------------------+
+                                                                | Coding Guidelines |
+            +---------------------------------------------------+-------------------+--------------------------------------------+
+            |
+            | 1- Standard Syntax for variables, functions declarations.
+            | 2- First letter of Documentations, Comments should be capitalized.
+            | 3- Don't leave unused code in files.
+            {#| 4- Commenting format should be like i-e    Comments   #}
+            +--------------------------------------------------------------------------------------------------------------------+
+
+
+                                                                    +---------+
+                                                                    | Updated |
+            +-------------------------------------------------------+---------+-------------------------------------------------+
+            |
+            |1 - index.html file is updated according to standards and guidelines of SRA(Sir Rao Adeel).
+            |
+            +-------------------------------------------------------------------------------------------------------------------+
+
+                                           +------------------------+
+                                           |    HyperParameters     |
+            +------------------------------+---+--------------------+-----------------------------------------------------------+
+            |   variable                       |                                 Description
+            +----------------------------------+--------------------------------------------------------------------------------+
+            |   class_Selected                 | store selected class
+            |   group_All                      | grouping all records and reducing to a single value
+            |   file_Path                      | path and name of the file
+            |   facts                          | store the facts loaded from a csv file
+            |   sel_Text                       | store the text contents of the selected element
+            |   section_Name                   | store section name
+            |   section_Group_Array            | array of the Section groups
+            |   sel_Text_Section               | store section name on user click
+            |   reg_Dim                        | store the Registration Number dimension
+            |   section_Dim                    | section dimension
+            |   data_Table_Options_Original    | options to display in Original table Format
+            |   section_Group                  | grouping for the section dimension
+            |   data_Table_Original            | table of students original data
+            |   store_Percentage_Column        | store percentage column in array format
+            |   data_Table_Options_Predicted   | options to display in Predicted table Format
+            |   data_Table_Predicted           | table of students predicted data
+            |   tasks                          | send data from template to view
+            |   received_Data                  | received data sent by view
+            +----------------------------------+--------------------------------------------------------------------------------+
+            '''
+-->
+
+{# Document type declaration #}
+<!DOCTYPE HTML>
+{# Language declaration #}
+<html lang="en">
+<head>
+    <title>
+        Majestic
+    </title>
+
+    {#    Loading static files here #}
+    {% load static %}
+
+    {#    Setting the viewport to make website look good on all devices#}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {#    Character encoding for the HTML document and Information/value of the content type#}
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+    {#    Description of page#}
+    <meta name="description" content="Visualization and Sales Prediction Of GTIN">
+
+    {#    Author of Page :#}
+    <meta name="author" content="Abdur Rauf">
+
+    {#    Defining keywords for search engines#}
+    <meta name="keywords"
+          content="Visualization and Sales Prediction Of GTIN, GTIN Prediction, Sales Prediction, BI of GTIN, BI of Sales, Visualization og GTIN"/>
+
+    {#    Media type of JavaScript source code#}
+    <script type="application/javascript"> addEventListener("load", function () {
+        setTimeout(hideURLbar, 0);
+    }, false);
+
+    function hideURLbar() {
+        window.scrollTo(0, 1);
+    }
+    </script>
+
+    {#  The {% static %} template tag generates the absolute URL of static files.#}
+    {#  load the bootstrap.css  - Bootstrap's Style Sheet #}
+    <link href="{% static 'css7/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all">
+
+    {#	Load the Custom Theme files #}
+    <link href="{% static 'css7/style.css' %}" rel="stylesheet" type="text/css" media="all"/>
+
+    {#  Load jquery (necessary for Bootstrap's JavaScript plugins) - Compressed version #}
+    <script src="{% static 'js4/jquery-2.1.1.min.js' %}"></script>
+
+    {#  Load Font Awesome, a font and icon toolkit based on CSS and LESS.#}
+    <link href="{% static 'css7/font-awesome.css' %}" rel="stylesheet">
+
+    {#	Load Google Fonts#}
+    <link href="//fonts.googleapis.com/css?family=Carrois+Gothic" rel='stylesheet' type='text/css'>
+    <link href="//fonts.googleapis.com/css?family=Work+Sans:400,500,600" rel='stylesheet' type='text/css'>
+
+    {#	 Load the Chart library - Chart a Javascript library that allows designers and developers to draw all kinds of charts using the HTML5 canvas element.#}
+    <script src="{% static 'js4/Chart.min.js' %}"></script>
+
+    {#    Load the modernizr library - Modernizr a JavaScript library that detects HTML5 and CSS3 features in the user's browser and tells what HTML, CSS and JavaScript features the user's browser has to offer - Compressed version#}
+    <script src="//cdn.jsdelivr.net/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
+    <script>
+        window.modernizr || document.write('<script src="{% static 'js4/modernizr-custom.min.js' %}"><\/script>')
+    </script>
+
+    {#   HTML5 Shiv  a JavaScript library used to enable styling of HTML5 elements in versions of Internet Explorer prior to version 9, which do not allow unknown elements to be styled without JavaScript. #}
+    {#  <script src="lib/html5shiv/html5shiv.js"></script>#}
+
+    {#  Load the Chartinator library - Chartinator a jQuery data visualization plugin that makes use of Google Charts to render a variety of charts from existing table content. #}
+    <script src="{% static 'js4/chartinator.js' %}"></script>
+
+    {#  load the crossfilter.js library - Crossfilter a JavaScript library for exploring large multivariate datasets in the browser.#}
+    <script src="{% static 'js2/crossfilter.js' %}"></script>
+
+    {#   load the d3.js library - D3 a JavaScript library for producing dynamic, interactive data visualizations in web browsers.#}
+    <script src="{% static 'js2/d3.js' %}"></script>
+
+    {#  Load the dc library - Dc a multi-dimensional charting library built to work natively with crossfilter and rendered using d3.js.#}
+    <script src="{% static 'js2/dc.js' %}"></script>
+
+    {#  Load the Datatables library - DataTables is a table enhancing plug-in for the jQuery Javascript library, adding sorting, paging and filtering abilities to plain HTML tables with minimal effort..#}
+    <script type="text/javascript" src="{% static 'js2/jquery.dataTables.js' %}"></script>
+
+    {#  Load dc Style Sheet#}
+    <link rel="stylesheet" href="{% static 'js2/dc.css' %}">
+
+    {#   Load Datatables Style Sheets#}
+    <link href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.css" rel="stylesheet"/>
+
+    {#  Load Datatables jquery - Compressed version#}
+    <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet"/>
+
+    {#  Load Datatables Buttons library Style Sheets#}
+    <link href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.css" rel="stylesheet"/>
+
+    {#  Load Datatables Buttons library Style Sheets - Compressed version#}
+    <link href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.min.css" rel="stylesheet"/>
+
+    {#   Load jQuery from a CDN (Content Delivery Network).#}
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+
+    {#   Load Datatables - DataTables is a table enhancing plug-in for the jQuery Javascript library, adding sorting, paging and filtering abilities to plain HTML tables with minimal effort..#}
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+
+    {#   Load JSZip library -JSZip a javascript library for creating, reading and editing .zip files - Compressed version#}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+
+    {#   Load Datatables Buttons library - Compressed version#}
+    <script src="https://cdn.datatables.net/buttons/1.4.2/js/dataTables.buttons.min.js"></script>
+
+    {#   Load pdfMake library - Client/server side PDF printing in pure JavaScript - Compressed version#}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
+
+    {#   Load vfs_fonts library - pdfMake uses a 2nd file: vfs_fonts.js for fonts (and other files) you wish to embed into your generated PDFs.#}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
+
+    {#   Load  HTML5 export buttons plug-in for Buttons - Compressed version #}
+    <script src="https://cdn.datatables.net/buttons/1.4.2/js/buttons.html5.min.js"></script>
+
+    {#   Load Print button library - will open a new window in the end user's browser and, by default, automatically trigger the print function allowing the end user to print the table - Compressed version #}
+    <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script>
+
+    {#    Load Skycons library - Skycons is a set of ten animated weather glyphs, procedurally generated by JavaScript using the HTML5 canvas tag.#}
+    <script src="{% static 'js4/skycons.js' %}"></script>
+
+
+    {#	Load button Style Sheet#}
+    <link href="{% static 'css7/demo-page.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'css7/hover.css' %}" rel="stylesheet" media="all">
+
+
+    {#  Load DateTime Picker Style Sheet (including necessary dropdown styles and alternative) - Compressed version  #}
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'css7/bootstrap-datetimepicker.min.css' %}">
+
+    {# Load Bootstrap DateTime Picker  library#}
+    <script type="text/javascript" src="{% static 'js2/bootstrap-datetimepicker.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js2/bootstrap-datetimepicker.pt-BR.js' %}"></script>
+
+</head>
+
+<body>
+<div class="page-container">
+    <div class="left-content">
+        <div class="mother-grid-inner">
+            <!--Header start here-->
+            <div class="header-main">
+
+                <div class="header-left">
+
+                    <div class="logo-name">
+
+                        <a href="{% url 'index' %}"><h1>Majestic</h1>
+                            <!--<img id="logo" src="" alt="Logo"/>-->
+                        </a>
+
+                    </div>
+
+                    <!--Search-box-->
+                    <div class="search-box">
+
+                        <form>
+                            <input type="text" placeholder="Search..." required="">
+                            <input type="submit" value="">
+                        </form>
+
+                    </div>
+                    <!--//End-search-box-->
+
+                    <!--Clearfix allows a container to wrap it's floated children.-->
+                    <div class="clearfix"></div>
+
+                </div>
+
+                <div class="header-right">
+
+                    <div class="profile_details_left"><!--Notifications of menu start -->
+
+                        <ul class="nofitications-dropdown">
+                            <li class="dropdown head-dpdn">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i
+                                        class="fa fa-envelope"></i><span class="badge">3</span></a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <div class="notification_header">
+                                            <h3>You have 3 new messages</h3>
+                                        </div>
+                                    </li>
+                                    <li><a href="#">
+                                        <div class="user_img"><img src="{% static 'images5/p4.png' %}" alt=""></div>
+                                        <div class="notification_desc">
+                                            <p>Lorem ipsum dolor</p>
+                                            <p><span>1 hour ago</span></p>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </a></li>
+                                    <li class="odd"><a href="#">
+                                        <div class="user_img"><img src="{% static 'images5/p2.png' %}" alt=""></div>
+                                        <div class="notification_desc">
+                                            <p>Lorem ipsum dolor </p>
+                                            <p><span>1 hour ago</span></p>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </a></li>
+                                    <li><a href="#">
+                                        <div class="user_img"><img src="{% static 'images5/p3.png' %}" alt=""></div>
+                                        <div class="notification_desc">
+                                            <p>Lorem ipsum dolor</p>
+                                            <p><span>1 hour ago</span></p>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </a></li>
+                                    <li>
+                                        <div class="notification_bottom">
+                                            <a href="#">See all messages</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="dropdown head-dpdn">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i
+                                        class="fa fa-bell"></i><span class="badge blue">3</span></a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <div class="notification_header">
+                                            <h3>You have 3 new notification</h3>
+                                        </div>
+                                    </li>
+                                    <li><a href="#">
+                                        <div class="user_img"><img src="{% static 'images5/p5.png' %}" alt=""></div>
+                                        <div class="notification_desc">
+                                            <p>Lorem ipsum dolor</p>
+                                            <p><span>1 hour ago</span></p>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </a></li>
+                                    <li class="odd"><a href="#">
+                                        <div class="user_img"><img src="{% static 'images5/p6.png' %}" alt=""></div>
+                                        <div class="notification_desc">
+                                            <p>Lorem ipsum dolor</p>
+                                            <p><span>1 hour ago</span></p>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </a></li>
+                                    <li><a href="#">
+                                        <div class="user_img"><img src="{% static 'images5/p7.png' %}" alt=""></div>
+                                        <div class="notification_desc">
+                                            <p>Lorem ipsum dolor</p>
+                                            <p><span>1 hour ago</span></p>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </a></li>
+                                    <li>
+                                        <div class="notification_bottom">
+                                            <a href="#">See all notifications</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="dropdown head-dpdn">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i
+                                        class="fa fa-tasks"></i><span class="badge blue1">9</span></a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <div class="notification_header">
+                                            <h3>You have 8 pending task</h3>
+                                        </div>
+                                    </li>
+                                    <li><a href="#">
+                                        <div class="task-info">
+                                            <span class="task-desc">Database update</span><span
+                                                class="percentage">40%</span>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="progress progress-striped active">
+                                            <div class="bar yellow" style="width:40%;"></div>
+                                        </div>
+                                    </a></li>
+                                    <li><a href="#">
+                                        <div class="task-info">
+                                            <span class="task-desc">Dashboard done</span><span
+                                                class="percentage">90%</span>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="progress progress-striped active">
+                                            <div class="bar green" style="width:90%;"></div>
+                                        </div>
+                                    </a></li>
+                                    <li><a href="#">
+                                        <div class="task-info">
+                                            <span class="task-desc">Mobile App</span><span class="percentage">33%</span>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="progress progress-striped active">
+                                            <div class="bar red" style="width: 33%;"></div>
+                                        </div>
+                                    </a></li>
+                                    <li><a href="#">
+                                        <div class="task-info">
+                                            <span class="task-desc">Issues fixed</span><span
+                                                class="percentage">80%</span>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="progress progress-striped active">
+                                            <div class="bar  blue" style="width: 80%;"></div>
+                                        </div>
+                                    </a></li>
+                                    <li>
+                                        <div class="notification_bottom">
+                                            <a href="#">See all pending tasks</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                        <!--Clearfix allows a container to wrap it's floated children.-->
+                        <div class="clearfix"></div>
+
+                    </div>
+                    <!--//Notification menu end -->
+
+                    <!--Profile menu start -->
+                    <div class="profile_details">
+
+                        <ul>
+
+                            <li class="dropdown profile_details_drop">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                    <div class="profile_img">
+                                        <span class="prfil-img"><img src="{% static 'images5/p1.png' %}" alt=""> </span>
+                                        <div class="user-name">
+                                            <p>Guru G</p>
+                                            <span>Administrator</span>
+                                        </div>
+                                        <i class="fa fa-angle-down lnr"></i>
+                                        <i class="fa fa-angle-up lnr"></i>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </a>
+                                <ul class="dropdown-menu drp-mnu">
+                                    <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
+                                    <li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
+                                    <li><a href="#"><i class="fa fa-sign-out"></i> Logout</a></li>
+                                </ul>
+                            </li>
+
+                        </ul>
+
+                    </div>
+                    <!--//Profile menu end here-->
+
+                    <!--Clearfix allows a container to wrap it's floated children.-->
+                    <div class="clearfix"></div>
+                </div>
+
+                <!--Clearfix allows a container to wrap it's floated children.-->
+                <div class="clearfix"></div>
+            </div>
+            <!--Header end here-->
+
+            <!-- Script-for sticky-nav -->
+            <script>
+                $(document).ready(function () {
+                    var navoffeset = $(".header-main").offset().top;
+                    $(window).scroll(function () {
+                        var scrollpos = $(window).scrollTop();
+                        if (scrollpos >= navoffeset) {
+                            $(".header-main").addClass("fixed");
+                        } else {
+                            $(".header-main").removeClass("fixed");
+                        }
+                    });
+
+                });
+            </script>
+            <!-- /Script-for sticky-nav -->
+
+            <!--Inner block start here-->
+            <div class="inner-block">
+                <!--Market updates updates-->
+                <div class="market-updates">
+
+                    <div class="col-md-4 market-update-gd">
+
+                        <div class="market-update-block clr-block-1">
+
+                            <div class="col-md-8 market-update-left">
+
+                                <h3>22</h3>
+                                <h4>Total GTIN </h4>
+
+
+                            </div>
+
+                            <div class="col-md-4 market-update-right">
+
+                                <i class="fa fa-file-text-o"> </i>
+
+                            </div>
+
+                            <!--Clearfix allows a container to wrap it's floated children.-->
+                            <div class="clearfix"></div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-4 market-update-gd">
+
+                        <div class="market-update-block clr-block-2">
+
+                            <div class="col-md-8 market-update-left" >
+
+                                <h4 id="gtin-Name"></h4>
+                                <h3>GTIN</h3>
+
+                            </div>
+
+                            <div class="col-md-4 market-update-right">
+
+                                <i class="fa fa-eye"> </i>
+
+                            </div>
+
+                            <!--clearfix allows a container to wrap it's floated children.-->
+                            <div class="clearfix"></div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-4 market-update-gd">
+                        <div class="market-update-block clr-block-3">
+                            <div class="col-md-8 market-update-left">
+                                <h3>23</h3>
+                                <h4>New Messages</h4>
+
+                            </div>
+                            <div class="col-md-4 market-update-right">
+                                <i class="fa fa-envelope-o"> </i>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+
+                    <!--Clearfix allows a container to wrap it's floated children.-->
+                    <div class="clearfix"></div>
+
+                </div>
+                <!--Market updates end here-->
+
+                <!--FormExample and Category dropdown-->
+                <div class="inner-block">
+
+
+                    {#  FormExample dropdown#}
+                    <div class="col-md-6">
+
+                        <div class="demo-grid panel-primary">
+
+                            <div class="panel-heading">
+
+                                <h3 class="panel-title">Please Select GTIN</h3>
+
+                            </div>
+
+                            <div class="panel-body">
+
+                                <div class="dropdown">
+
+                                    <button class="btn btn-primary btn-lg btn-block dropdown-toggle center-block" type="button"
+                                            data-toggle="dropdown" id="tableButton" aria-haspopup="true"
+                                            aria-expanded="true">Select GTIN
+                                        <span class="caret"></span>
+                                    </button>
+
+                                    <ul class="dropdown-menu" id="demolist">
+
+                                        <li><a href="#">All</a></li>
+                                        <li><a href="#">6kg (300-450g)L1</a></li>
+                                        <li><a href="#">6kg (450-600g)L2</a></li>
+                                        <li><a href="#">12_3lb Bags</a></li>
+                                        <li><a href="#">18kg (100-150g)</a></li>
+                                        <li><a href="#">20lb Spec - Bonita No 1</a></li>
+                                        <li><a href="#">40lb 45ct</a></li>
+                                        <li><a href="#">40lb 50ct</a></li>
+                                        <li><a href="#">40lb 55ct</a></li>
+                                        <li><a href="#">40lb 65ct</a></li>
+                                        <li><a href="#">40lb 75ct</a></li>
+                                        <li><a href="#">40lb 90ct</a></li>
+                                        <li><a href="#">40lb Bonita (White)</a></li>
+                                        <li><a href="#">40lb Fingerling</a></li>
+                                        <li><a href="#">40lb Jumbo</a></li>
+                                        <li><a href="#">40lb No 1</a></li>
+                                        <li><a href="#">40lb Organic</a></li>
+                                        <li><a href="#">40lb Spc-Purple</a></li>
+                                        <li><a href="#">55 Bin Giant</a></li>
+                                        <li><a href="#">500kg (150-300g)</a></li>
+                                        <li><a href="#">500kg (300-800g)</a></li>
+                                        <li><a href="#">Micro - 6Kg (24ct)</a></li>
+                                        <li><a href="#">Tray Pack - 4 pk 12 ct</a></li>
+
+                                    </ul>
+
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+
+                    {#  Category dropdown#}
+
+                    <div class="col-md-6">
+
+                        <div class="demo-grid panel-primary">
+
+                            <div class="panel-heading">
+
+                                <h3 class="panel-title">Please Select Prediction Category</h3>
+
+                            </div>
+
+                            <div class="panel-body">
+
+                                <div class="dropup">
+
+                                    <button class="btn btn-success btn-lg btn-block dropdown-toggle center-block" type="button"
+                                            data-toggle="dropdown" id="prediction-category">Select Prediction Category
+                                        <span class="caret"></span>
+                                    </button>
+
+                                    <ul class="dropdown-menu" id="sectionName">
+
+                                        <li><a href="#">day</a></li>
+                                        <li><a href="#">week</a></li>
+                                        <li><a href="#">month</a></li>
+
+                                    </ul>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <!--Class Dropdown end here-->
+
+
+                <!-- Processing button start-->
+                <div class="inner-block">
+
+                    <div class="btn-effcts panel-widget">
+
+                        <div class="button-heading">
+
+                            <h4>Please Enter Duration :</h4>
+
+                        </div>
+
+                        <div>
+                            <div class="form-group row " style="margin-left: 30%">
+
+                                <div class="col-lg-5 ">
+
+                                    <input class="form-control" type="number" value="0" id="example-number-input">
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+                <!-- Processing button end here-->
+
+
+
+
+                <!-- Processing button start-->
+                <div class="inner-block">
+
+                    <div class="btn-effcts panel-widget">
+
+                        <div class="button-heading">
+
+                            <h4>Processing</h4>
+
+                        </div>
+
+                        <div>
+
+                            <form method="post" action="/getdata/">
+
+                                <a id="submit-go" class="hvr-bounce-to-right btn-lg btn-block" id="predict_Button">Go</a>
+
+                            </form>
+
+                        </div>
+
+
+                        <div id="loading">
+                            <img id="loading-image" src="{% static 'images5/ajax-loader.gif' %}" alt="Loading..."/>
+                        </div>
+
+                    </div>
+
+                </div>
+                <!-- Processing button end here-->
+
+                <!--Duration Dropdown-->
+                <div class="inner-block" id="date-Time-Picker">
+
+                    {#  Prediction start date #}
+                    <div class="col-md-6">
+
+                        <div class="demo-grid panel-primary">
+
+                            <div class="panel-heading">
+
+                                <h3 class="panel-title"> Prediction - Start Date</h3>
+
+                            </div>
+
+                            <div class="panel-body">
+
+                                <div class="well">
+
+                                    <div id="datetimepicker4" class="input-append">
+
+                                        <input data-format="dd-MM-yyyy" type="text"></input>
+
+                                        <span class="add-on">
+
+                                            <span class="glyphicon glyphicon-calendar">
+
+                                            </span>
+
+                                        </span>
+
+
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    {#  Prediction end date #}
+
+                    <div class="col-md-6">
+
+                        <div class="demo-grid panel-primary">
+
+                            <div class="panel-heading">
+
+                                <h3 class="panel-title"> Prediction - End Date</h3>
+
+                            </div>
+
+                            <div class="panel-body">
+
+                                <div class="well">
+
+                                    <div id="datetimepicker5" class="input-append">
+
+                                        <input data-format="dd-MM-yyyy" type="text"></input>
+
+                                        <span class="add-on">
+
+                                            <span class="glyphicon glyphicon-calendar">
+
+                                            </span>
+
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!--Duration Dropdown end here-->
+
+
+                <!-- Prediction button start-->
+                <div class="inner-block">
+
+                    <div class="btn-effcts panel-widget">
+
+                        <div class="button-heading " >
+
+                            <h4>Predictions</h4>
+
+                        </div>
+
+                        <div style="margin-left: 42.25%">
+
+                        <form method="post" action="/getdata/">
+                            <a id="submit" class="hvr-bounce-to-bottom btn-lg btn-success" id="predict_Button">Get Prediction</a>
+                        </form>
+                            </div>
+
+                        <div id="loading-predictions">
+                            <img id="loading-image" src="{% static 'images5/ajax-loader.gif' %}" alt="Loading..."/>
+                        </div>
+
+                    </div>
+
+
+                </div>
+                <!-- Prediction button end here-->
+
+                <!--Predictions table-->
+                <div class="chit-chat-layer1">
+
+                    <div id="results">
+
+                    </div>
+
+                    <div class="col-md-12 chit-chat-layer1-left">
+
+                        <div class="work-progres">
+
+                            <div class="chit-chat-heading">
+
+                                Future Predictions Of GTIN
+
+                            </div>
+
+                            <div class="table-responsive">
+
+                                <table id="dc-data-table2"
+                                       class="list table table-striped table-bordered table table-hover">
+
+                                    <thead>
+
+                                    <tr class='header' style="background-color: Cornsilk ;">
+
+
+                                        <th>Prediction Date</th>
+                                        <th>Prediction</th>
+                                        <th>Prediction_lower_bound</th>
+                                        <th>Prediction_upper_bound</th>
+                                        <th>GTIN</th>
+
+                                    </tr>
+
+                                    </thead>
+
+                                </table>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!--Clearfix allows a container to wrap it's floated children.-->
+                    <div class="clearfix">
+
+                    </div>
+
+                </div>
+                <!--Predictions table end here-->
+
+                <!--Main page chart start here-->
+                <div class="main-page-charts">
+
+                    <div class="main-page-chart-layer1">
+
+                        <div class="col-md-6 chart-layer1-left">
+
+                            <div class="glocy-chart">
+
+                                <div class="span-2c">
+
+                                    <h3 class="tlt">Sales Analytics</h3>
+                                    <canvas id="bar" height="300" width="400"
+                                            style="width: 400px; height: 300px;">
+                                    </canvas>
+
+                                    <script>
+
+                                        var barChartData = {
+                                            labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "jul"],
+                                            datasets: [
+                                                {
+                                                    fillColor: "#FC8213",
+                                                    data: [65, 59, 90, 81, 56, 55, 40]
+                                                },
+                                                {
+                                                    fillColor: "#337AB7",
+                                                    data: [28, 48, 40, 19, 96, 27, 100]
+                                                }
+                                            ]
+
+                                        };
+                                        new Chart(document.getElementById("bar").getContext("2d")).Bar(barChartData);
+
+                                    </script>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-6 chart-layer1-right">
+
+                            <div class="user-marorm">
+
+                                <div class="malorum-top">
+
+                                </div>
+                                <div class="malorm-bottom">
+
+                                    <span class="malorum-pro"> </span>
+
+                                    <h4>unde omnis iste</h4>
+                                    <h2>Melorum</h2>
+                                    <p>But I must explain to you how all this mistaken idea of denouncing pleasure and
+                                        praising.</p>
+
+                                    <ul class="malorum-icons">
+
+                                        <li>
+                                            <a href="#"><i class="fa fa-facebook"> </i>
+                                                <div class="tooltip"><span>Facebook</span></div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><i class="fa fa-twitter"> </i>
+                                                <div class="tooltip"><span>Twitter</span></div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#"><i class="fa fa-google-plus"> </i>
+                                                <div class="tooltip"><span>Google</span></div>
+                                            </a>
+                                        </li>
+
+                                    </ul>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!--Clearfix allows a container to wrap it's floated children.-->
+                        <div class="clearfix"></div>
+
+                    </div>
+
+                </div>
+
+
+                <!--Main page chart layer2-->
+                <div class="chart-layer-2">
+
+                    <div class="col-md-6 chart-layer2-right">
+
+                        <div class="prograc-blocks">
+
+                            <!--Progress bars-->
+                            <div class="home-progres-main">
+
+                                <h3>Total Sales</h3>
+
+                            </div>
+
+                            <div class='bar_group'>
+
+                                <div class='bar_group__bar thin' label='Rating' show_values='true' tooltip='true'
+                                     value='343'>
+                                </div>
+                                <div class='bar_group__bar thin' label='Quality' show_values='true' tooltip='true'
+                                     value='235'>
+                                </div>
+                                <div class='bar_group__bar thin' label='Amount' show_values='true' tooltip='true'
+                                     value='550'>
+                                </div>
+                                <div class='bar_group__bar thin' label='Farming' show_values='true' tooltip='true'
+                                     value='456'>
+                                </div>
+
+                            </div>
+
+                            {#  Bars a lightweight jQuery plugin that enables you visualize numeric data into responsive, dynamic, fully styleable bar indicators.#}
+                            <script src="{% static 'js4/bars.js' %}"></script>
+
+                            <!--//Progress bars-->
+                        </div>
+                    </div>
+                    <div class="col-md-6 chart-layer2-left">
+
+                        <div class="content-main revenue">
+
+                            <h3>Total Revenue</h3>
+
+                            <canvas id="radar" height="300" width="300" style="width: 300px; height: 300px;">
+
+                            </canvas>
+
+                            <script>
+
+                                var radarChartData = {
+                                    labels: ["", "", "", "", "", "", ""],
+                                    datasets: [
+                                        {
+                                            fillColor: "rgba(104, 174, 0, 0.83)",
+                                            strokeColor: "#68ae00",
+                                            pointColor: "#68ae00",
+                                            pointStrokeColor: "#fff",
+                                            data: [65, 59, 90, 81, 56, 55, 40]
+                                        },
+                                        {
+                                            fillColor: "rgba(236, 133, 38, 0.82)",
+                                            strokeColor: "#ec8526",
+                                            pointColor: "#ec8526",
+                                            pointStrokeColor: "#fff",
+                                            data: [28, 48, 40, 19, 96, 27, 100]
+                                        }
+                                    ]
+
+                                };
+
+                                new Chart(document.getElementById("radar").getContext("2d")).Radar(radarChartData);
+
+                            </script>
+
+                        </div>
+
+                    </div>
+
+                    <!--clearfix allows a container to wrap it's floated children.-->
+                    <div class="clearfix"></div>
+
+                </div>
+
+                <!--climate start here-->
+                <div class="climate">
+
+                    <div class="col-md-4 climate-grids">
+
+                        <div class="climate-grid1">
+
+                            <div class="climate-gd1-top">
+
+                                <div class="col-md-6 climate-gd1top-left">
+
+                                    <h4>Aprill 6-wed</h4>
+                                    <h3>12:30<span class="timein-pms">PM</span></h3>
+                                    <p>Humidity:</p>
+                                    <p>Sunset:</p>
+                                    <p>Sunrise:</p>
+
+                                </div>
+
+                                <div class="col-md-6 climate-gd1top-right">
+                                    <span class="clime-icon">
+                                        <figure class="icons">
+                                            <canvas id="partly-cloudy-day" width="64" height="64">
+
+                                            </canvas>
+                                        </figure>
+
+                                        <script>
+                                            var icons = new Skycons({"color": "#fff"}),
+                                                list = [
+                                                    "clear-night", "partly-cloudy-day",
+                                                    "partly-cloudy-night", "cloudy", "rain", "sleet", "snow", "wind",
+                                                    "fog"
+                                                ],
+                                                i;
+
+                                            for (i = list.length; i--;)
+                                                icons.set(list[i], list[i]);
+
+                                            icons.play();
+                                        </script>
+
+				                    </span>
+
+                                    <p>88%</p>
+                                    <p>5:40PM</p>
+                                    <p>6:30AM</p>
+                                </div>
+
+                                <!--clearfix allows a container to wrap it's floated children.-->
+                                <div class="clearfix"></div>
+
+                            </div>
+
+                            <div class="climate-gd1-bottom">
+
+                                <div class="col-md-4 cloudy1">
+
+                                    <h4>Hongkong</h4>
+
+                                    <figure class="icons">
+
+                                        <canvas id="sleet" width="58" height="58">
+                                        </canvas>
+
+                                    </figure>
+
+                                    <script>
+
+                                        var icons = new Skycons({"color": "#fff"}),
+                                            list = [
+                                                "clear-night", "clear-day",
+                                                "partly-cloudy-night", "cloudy", "rain", "sleet", "snow", "wind",
+                                                "fog"
+                                            ],
+                                            i;
+
+                                        for (i = list.length; i--;)
+                                            icons.set(list[i], list[i]);
+
+                                        icons.play();
+
+                                    </script>
+
+                                    <h3>10c</h3>
+
+                                </div>
+
+                                <div class="col-md-4 cloudy1">
+
+                                    <h4>UK</h4>
+
+                                    <figure class="icons">
+                                        <canvas id="cloudy" width="58" height="58"></canvas>
+                                    </figure>
+
+                                    <script>
+
+                                        var icons = new Skycons({"color": "#fff"}),
+                                            list = [
+                                                "clear-night", "cloudy",
+                                                "partly-cloudy-night", "cloudy", "rain", "sleet", "snow", "wind",
+                                                "fog"
+                                            ],
+                                            i;
+
+                                        for (i = list.length; i--;)
+                                            icons.set(list[i], list[i]);
+
+                                        icons.play();
+
+                                    </script>
+
+                                    <h3>6c</h3>
+
+                                </div>
+
+                                <div class="col-md-4 cloudy1">
+
+                                    <h4>USA</h4>
+
+                                    <figure class="icons">
+                                        <canvas id="snow" width="58" height="58">
+                                        </canvas>
+                                    </figure>
+
+                                    <script>
+
+                                        var icons = new Skycons({"color": "#fff"}),
+                                            list = [
+                                                "clear-night", "clear-day",
+                                                "partly-cloudy-night", "cloudy", "rain", "sleet", "snow", "wind",
+                                                "fog"
+                                            ],
+                                            i;
+
+                                        for (i = list.length; i--;)
+                                            icons.set(list[i], list[i]);
+
+                                        icons.play();
+
+                                    </script>
+
+                                    <h3>10c</h3>
+
+                                </div>
+
+                                <!--clearfix allows a container to wrap it's floated children.-->
+                                <div class="clearfix"></div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-4 climate-grids">
+
+                        <div class="climate-grid2">
+
+                            <span class="shoppy-rate"><h4>$180</h4></span>
+
+                            <ul>
+                                <li>
+                                    <i class="fa fa-credit-card"> </i>
+                                </li>
+                                <li>
+                                    <i class="fa fa-usd"> </i>
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+                        <div class="shoppy">
+
+                            <h3>Those Who Hate Shopping?</h3>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-4 climate-grids">
+
+                        <div class="climate-grid3">
+
+                            <div class="popular-brand">
+
+                                <div class="col-md-6 popular-bran-left">
+
+                                    <h3>Popular</h3>
+                                    <h4>Brand of this month</h4>
+                                    <p> Duis aute irure in reprehenderit.</p>
+
+                                </div>
+
+                                <div class="col-md-6 popular-bran-right">
+
+                                    <h3>Polo</h3>
+
+                                </div>
+
+                                <div class="clearfix"></div>
+
+                            </div>
+
+                            <div class="popular-follow">
+
+                                <div class="col-md-6 popular-follo-left">
+
+                                    <p>Lorem ipsum dolor sit amet, adipiscing elit.</p>
+
+                                </div>
+
+                                <div class="col-md-6 popular-follo-right">
+
+                                    <h4>Follower</h4>
+                                    <h5>2892</h5>
+
+                                </div>
+
+                                <div class="clearfix"></div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!--Clearfix allows a container to wrap it's floated children.-->
+                    <div class="clearfix"></div>
+
+                </div>
+                <!--Climate end here-->
+
+            </div>
+            <!--Inner block end here-->
+
+            <!--Copy rights start here-->
+            <div class="copyrights">
+
+                <p>© 2018 Majestic. All Rights Reserved | Design by <a href="http://w3layouts.com/" target="_blank">Professor Usman </a>
+                </p>
+
+            </div>
+            <!--COPY rights end here-->
+
+        </div>
+
+    </div>
+
+    <!--Slider menu-->
+    <div class="sidebar-menu">
+
+        <div class="logo">
+            <a href="#" class="sidebar-icon"> <span class="fa fa-bars"></span> </a> <a href="#">
+            <span id="logo">
+
+            </span>
+            <!--<img id="logo" src="" alt="Logo"/>-->
+        </a>
+
+        </div>
+
+        <div class="menu">
+
+            <ul id="menu">
+
+                <li id="menu-home">
+                    <a href="{% url 'index' %}">
+                        <i class="fa fa-tachometer">
+
+                        </i><span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-cogs"></i>
+                        <span>Components</span>
+                        <span class="fa fa-angle-right" style="float: right">
+
+                        </span>
+                    </a>
+
+                    <ul>
+
+                        <li>
+
+                            <a href="{% static 'html1/grids.html' %}">Grids</a>
+                        </li>
+                        <li>
+                            <a href="{% static 'html1/portlet.html' %}">Portlets</a>
+                        </li>
+
+                    </ul>
+
+                </li>
+
+                <li id="menu-comunicacao"><a href="#"><i class="fa fa-book nav_icon"></i><span>Element</span><span
+                        class="fa fa-angle-right" style="float: right"></span></a>
+
+                    <ul id="menu-comunicacao-sub">
+
+                        <li id="menu-mensagens" style="width: 120px">
+                            <a href="{% static 'html1/buttons.html' %}">Buttons</a>
+                        </li>
+
+                        <li id="menu-arquivos">
+                            <a href="{% static 'html1/typography.html' %}">Typography</a>
+                        </li>
+                        <li id="menu-arquivos">
+                            <a href="{% static 'html1/icons.html' %}">Icons</a>
+                        </li>
+
+                    </ul>
+
+                </li>
+
+                <li>
+                    <a href="{% static 'html1/maps.html' %}"><i class="fa fa-map-marker"></i><span>Maps</span>
+                    </a>
+                </li>
+
+                <li id="menu-academico">
+                    <a href="#"><i class="fa fa-file-text"></i><span>Pages</span><span
+                            class="fa fa-angle-right" style="float: right"></span>
+                    </a>
+                    <ul id="menu-academico-sub">
+                        <li id="menu-academico-boletim">
+                            <a href="{% static 'html1/login.html' %}">Login</a>
+                        </li>
+                        <li id="menu-academico-avaliacoes">
+                            <a href="{% static 'html1/signup.html' %}">Sign Up</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="{% url 'charts' %}"><i class="fa fa-bar-chart"></i><span>Charts</span></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-envelope"></i><span>Mailbox</span><span class="fa fa-angle-right"
+                                                                                        style="float: right"></span>
+                    </a>
+                    <ul id="menu-academico-sub">
+
+                        <li id="menu-academico-avaliacoes">
+                            <a href="{% static 'html/inbox.html' %}">Inbox</a>
+                        </li>
+                        <li id="menu-academico-boletim">
+                            <a href="{% static 'html1/inbox-details.html' %}">Compose
+                                email</a>
+                        </li>
+
+                    </ul>
+
+                </li>
+
+                <li>
+                    <a href="#"><i class="fa fa-cog"></i><span>System</span><span class="fa fa-angle-right"
+                                                                                  style="float: right"></span>
+                    </a>
+
+                    <ul id="menu-academico-sub">
+
+                        <li id="menu-academico-avaliacoes">
+                            <a href="{% static 'html1/404.html' %}">404
+                            </a>
+                        </li>
+                        <li id="menu-academico-boletim">
+                            <a href="{% static 'html1/blank.html' %}">Blank
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </li>
+
+                <li>
+
+                    <a href="#"><i class="fa fa-shopping-cart"></i><span>E-Commerce</span><span
+                            class="fa fa-angle-right" style="float: right"></span>
+                    </a>
+
+                    <ul id="menu-academico-sub">
+
+                        <li id="menu-academico-avaliacoes">
+                            <a href="{% static 'html1/product.html' %}">Product</a>
+                        </li>
+                        <li id="menu-academico-boletim">
+                            <a href="{% static 'html1/price.html' %}">Price
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+    <!--Clearfix allows a container to wrap it's floated children.-->
+    <div class="clearfix"></div>
+
+</div>
+<!--Slide bar menu end here-->
+
+<script>
+
+    var toggle = true;
+
+    $(".sidebar-icon").click(function () {
+
+        if (toggle) {
+            $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
+            $("#menu span").css({"position": "absolute"});
+        }
+        else {
+            $(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
+            setTimeout(function () {
+                $("#menu span").css({"position": "relative"});
+            }, 400);
+        }
+
+        toggle = !toggle;
+    });
+
+</script>
+
+{# Loading scrolling js#}
+<script src="{% static 'js4/jquery.nicescroll.js' %}"></script>
+<script src="{% static 'js4/scripts.js' %}"></script>
+
+{# Including Bootstrap - Bootstrap a free and open-source front-end library for designing websites and web applications. #}
+<script src="{% static 'js4/bootstrap.js' %}"></script>
+
+<!-- Mother grid end here-->
+
+<script type="text/javascript">
+
+
+    var sel_Text;
+    var sel_Text_Section;
+    var picker;
+    var utcDate;
+    var submit_go_Slected;
+
+    $('#loading').hide();
+    $('#loading-predictions').hide();
+
+
+    {#   When a user clicks on the element with the id "#demolist a" (probably an anchor tag), call an anonymous function, "function(e)", and assign the resulting object to a handler, "e". #}
+    $("#demolist a").click(function (e) {
+
+        {#preventDefault() method will prevent the link from following the URL.#}
+        e.preventDefault(); // cancel the link behaviour
+
+        {# Store the text content of the selected elements.  #}
+        sel_Text = $(this).text();
+
+        $("#gtin-Name").text(sel_Text);
+
+        if(sel_Text === 'All'){
+        {#    ------------------------------------------------------------#}
+
+                {#  This $(selector).text(content) method sets the text content of the selected elements.  #}
+        $("#tableButton").text(sel_Text);
+
+
+
+        var gtin_List = ["6kg (300-450g)L1", "6kg (450-600g)L2", "12_3lb Bags", "18kg (100-150g)",
+                         "20lb Spec - Bonita No 1", "40lb 45ct", "40lb 50ct", "40lb 55ct", "40lb 65ct", "40lb 75ct",
+                          "40lb 90ct", "40lb Bonita (White)", "40lb Fingerling", "40lb Jumbo", "40lb No 1",
+                            "40lb Organic", "40lb Spc-Purple", "55 Bin Giant", "500kg (150-300g)", "500kg (300-800g)",
+                            "Micro - 6Kg (24ct)", "Tray Pack - 4 pk 12 ct" ];
+
+
+        var last_date_All_Gtin = [];
+                var received_Data;
+
+                     {#  Store the section Name on user click #}
+        $("#sectionName a").click(function (e) {
+            e.preventDefault(); // cancel the link behaviour
+            sel_Text_Section = $(this).text();
+            $("#prediction-category").text(sel_Text_Section);
+
+        });
+
+
+
+
+
+
+        {# Processing Method #}
+        {# Attach a click event on '#submit' #}
+
+        $('#submit-go').on('click', function () {
+
+            for (i = 0; i < gtin_List.length; i++) {
+             sel_Text = gtin_List[i];
+             alert(sel_Text);
+
+
+
+            $('#loading').show();
+
+
+            var gtin_Slected = sel_Text;
+            var caetgeory_Slected = sel_Text_Section;
+            submit_go_Slected = 'all_gtin';
+
+            var array = [];
+            $.ajax({
+                type: 'POST',
+                url: $(this).attr('action'),
+                method: $(this).attr('method'),
+                data: {
+                    'tasks[]': gtin_Slected,
+                    'class_selected': caetgeory_Slected,
+                    'submit_go_Slected': submit_go_Slected
+                },
+                success: function (data) {
+                    received_Data = data.result;
+                    last_date_All_Gtin.push(received_Data);
+                    alert(received_Data);
+                },
+                complete: function () {
+                    // no matter the result, complete will fire, so it's a good place
+                    // to do the non-conditional stuff, like hiding a loading image.
+
+
+                    $('#loading').hide();
+                    $('#date-Time-Picker').hide();
+
+
+
+                }
+
+
+            });
+
+        {#    loop end#}
+
+                       }
+
+
+        });
+
+        {# End Date - Prdiction #}
+        $(function () {
+
+            $('#datetimepicker5').datetimepicker({
+                pickTime: false
+            });
+
+
+        });
+
+
+
+
+//Get
+
+
+
+
+
+        {# Prediction Method #}
+
+        {# Attach a click event on '#submit' #}
+        $('#submit').on('click', function () {
+
+            var duration_Period = $('#example-number-input').val();
+
+                bbc=0;
+              for (i = 0; i < gtin_List.length; i++) {
+                  sel_Text = gtin_List[i];
+                  alert(sel_Text);
+
+
+                  $('#loading-predictions').show();
+
+                  picker = $('#datetimepicker5').data('datetimepicker');
+                  utcDate = picker.getDate();
+
+
+                  var gtin_Slected = sel_Text;
+                  var caetgeory_Slected = sel_Text_Section;
+                  submit_go_Slected = 'submitPredictions';
+
+
+                  var last_date = "" + received_Data;
+                  {#alert(last_date);#}
+                  var received_Data2;
+                  var array = [];
+                  $.ajax({
+                      type: 'POST',
+                      url: $(this).attr('action'),
+                      method: $(this).attr('method'),
+                      data: {
+                          'tasks[]': gtin_Slected,
+                          'class_selected': caetgeory_Slected,
+                          'submit_go_Slected': submit_go_Slected,
+                          'end_date': duration_Period,
+                          'index': bbc
+                      },
+                      success: function (data) {
+                          received_Data2 = data.result;
+
+
+                      },
+                      complete: function () {
+                          // no matter the result, complete will fire, so it's a good place
+                          // to do the non-conditional stuff, like hiding a loading image.
+
+
+                          $('#loading-predictions').hide();
+
+
+                      }
+
+
+                  });
+                  bbc =1;
+              }
+
+
+
+
+              function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+
+
+
+              function sayHi() {
+
+}
+
+setTimeout(sayHi, 550000);
+
+                    {#  Prediction Data calling on Click end here#}
+
+
+                    {# Path of file#}
+                    var file_Path = "{% static 'csv3/FullFuturePredictions.csv'%}";
+                    {#  load data from a csv file#}
+                    d3.csv(file_Path, function (err, data) {
+
+                        if (err) throw err;
+
+                        {#  format our data#}
+                        var dateFormat = d3.time.format('%Y-%m-%d');
+                        data.forEach(function (d) {
+                            d.Date = dateFormat(new Date(d.Date));
+
+
+                        });
+
+                        {#  Run the data through crossfilter and load our 'facts'#}
+                        facts = crossfilter(data);
+
+                        {#  Grouping all records and reducing to a single value.#}
+                        var group_All = facts.groupAll();
+
+                        {#  Add the Shipping Date dimension#}
+                        var date_Dim = facts.dimension(function (d) {
+                            {#alert(d.Date);#}
+                            return d.Date;
+                        });
+
+                        var monthNames =
+                            [
+                                "January", "February", "March",
+                                "April", "May", "June", "July",
+                                "August", "September", "October",
+                                "November", "December"
+                            ];
+
+                        {#  Setup the table#}
+                        {#  options to display in Original Table Format#}
+                        var data_Table_Options_Original = {
+
+                            {#  Restore the tables in the current context to its original state in the DOM by removing all of DataTables enhancements #}
+                            destroy: true,
+                            dom: 'Blftipr',
+                            buttons: [
+                                {
+                                    extend: 'pdf',
+                                    title: 'Prediction Record',
+                                    filename: 'Performance_Record'
+                                },
+
+                                {
+                                    extend: 'excel',
+                                    title: 'Prediction Record',
+                                    filename: 'Performance_Record'
+                                },
+
+                                {
+                                    extend: 'csv',
+                                    title: 'Prediction Record',
+                                    filename: 'Performance_Record'
+                                },
+                                {
+                                    extend: 'copy',
+                                    filename: 'Performance_Record'
+                                },
+
+                                {
+                                    extend: 'print',
+                                    title: 'Predictions Record',
+
+                                }
+                            ],
+
+                            "pagingType": "full_numbers",
+                            "lengthMenu": [[10, 25, 50, 100, 500, -1], [10, 25, 50, 100, 500, "All"]],
+                            "scrollY": "700px",
+                            "scrollCollapse": true,
+
+                            columnDefs: [
+                                {
+                                    "orderable": true,
+                                    targets: 0,
+                                    data: function (d) {
+                                        return d.Date;
+                                    }
+                                },
+                                {
+                                    "orderable": true,
+                                    targets: 1,
+                                    data: function (d) {
+                                        return d.Prediction;
+                                    }
+
+                                },
+                                {
+                                    "orderable": true,
+                                    targets: 2,
+                                    data: function (d) {
+                                        return d.Prediction_lower_bound;
+                                    }
+                                },
+                                {
+                                    "orderable": true,
+                                    targets: 3,
+                                    data: function (d) {
+                                        return d.Prediction_upper_bound;
+                                    }
+                                }  ,
+                                {
+                                    "orderable": true,
+                                    targets: 4,
+                                    data: function (d) {
+                                        return d.GTIN;
+                                    }
+                                },
+                                {
+                                    "defaultContent": "-",
+                                    "targets": "_all"
+                                }
+                            ]
+                        };
+                        {# Table of students original data - Displaying data in tabular fromat #}
+                        var data_Table_Original = $('#dc-data-table2').dataTable(data_Table_Options_Original);
+
+                        function RefreshTable() {
+                            dc.events.trigger(function () {
+                                data_Table_Original.api()
+                                    .clear()
+                                    .rows.add(date_Dim.top(Infinity))
+                                    .draw();
+                            });
+                        }
+
+
+                        RefreshTable();
+
+
+                        {#  Prediction Data calling on Click end here#}
+
+
+                    });
+
+
+
+
+
+        });
+
+
+        {#    ------------------------------------------------------------#}
+
+        }else{
+
+        {#  This $(selector).text(content) method sets the text content of the selected elements.  #}
+        $("#tableButton").text(sel_Text);
+
+
+        {#  Store the section Name on user click #}
+        $("#sectionName a").click(function (e) {
+            e.preventDefault(); // cancel the link behaviour
+            sel_Text_Section = $(this).text();
+            $("#prediction-category").text(sel_Text_Section);
+
+        });
+
+        {# Processing Method #}
+        {# Attach a click event on '#submit' #}
+        var received_Data;
+        $('#submit-go').on('click', function () {
+
+
+            $('#loading').show();
+
+
+            var gtin_Slected = sel_Text;
+            var caetgeory_Slected = sel_Text_Section;
+            submit_go_Slected = 'submitGo';
+
+            var array = [];
+            $.ajax({
+                type: 'POST',
+                url: $(this).attr('action'),
+                method: $(this).attr('method'),
+                data: {
+                    'tasks[]': gtin_Slected,
+                    'class_selected': caetgeory_Slected,
+                    'submit_go_Slected': submit_go_Slected
+                },
+                success: function (data) {
+                    received_Data = data.result;
+                    {#alert(received_Data);#}
+                    var from = received_Data.split("-");
+
+                    {# Start Date - Prdiction #}
+                    $(function () {
+
+                        $('#datetimepicker4').datetimepicker({
+                            pickTime: false,
+                            today: true
+                        });
+
+                        var picker = $('#datetimepicker4').data('datetimepicker');
+                        // Considering you are on a GMT-3 timezone and the input contains '2000-01-17 10:00'
+                        var localDate = picker.getLocalDate(); // localDate === 2000-01-17 07:00
+                        var utcDate = picker.getDate(); // utcDate === 2000-01-17 10:00
+                        //
+                        picker.setLocalDate(new Date(from[0], from[1] - 1, from[2])); // input === 1998-10-11 07:30
+                        {#picker.setDate(new Date(Date.UTC(1998, 10, 11, 4, 30))); // input === 1998-10-11 04:30#}
+
+                    });
+                },
+                complete: function () {
+                    // no matter the result, complete will fire, so it's a good place
+                    // to do the non-conditional stuff, like hiding a loading image.
+
+
+                    $('#loading').hide();
+
+
+                }
+
+
+            });
+
+
+        });
+
+        {# End Date - Prdiction #}
+        $(function () {
+
+            $('#datetimepicker5').datetimepicker({
+                pickTime: false
+            });
+
+
+        });
+
+
+        {# Prediction Method #}
+
+        {# Attach a click event on '#submit' #}
+        $('#submit').on('click', function () {
+
+
+            $('#loading-predictions').show();
+
+            picker = $('#datetimepicker5').data('datetimepicker');
+            utcDate = picker.getDate();
+
+
+            var gtin_Slected = sel_Text;
+            var caetgeory_Slected = sel_Text_Section;
+            submit_go_Slected = 'submit';
+            {#alert(submit_go_Slected);#}
+            var lastDay;
+
+          var date = new Date(utcDate);
+            var str = "";
+            str += date.getFullYear() + "-";
+            str += (date.getMonth() + 1) + "-";
+            str += (date.getDate());
+
+
+
+
+
+            var last_date = "" + received_Data;
+            {#alert(last_date);#}
+            var received_Data2;
+            var array = [];
+            $.ajax({
+                type: 'POST',
+                url: $(this).attr('action'),
+                method: $(this).attr('method'),
+                data: {
+                    'tasks[]': gtin_Slected,
+                    'class_selected': caetgeory_Slected,
+                    'submit_go_Slected': submit_go_Slected,
+                    'end_date': str,
+                    'last_date': last_date
+                },
+                success: function (data) {
+                    received_Data2 = data.result;
+
+
+                },
+                complete: function () {
+                    // no matter the result, complete will fire, so it's a good place
+                    // to do the non-conditional stuff, like hiding a loading image.
+
+
+                    $('#loading-predictions').hide();
+
+
+                    {#  Prediction Data calling on Click end here#}
+
+
+                    {# Path of file#}
+                    var file_Path = "{% static 'csv3/Future Predictions.csv'%}";
+                    {#  load data from a csv file#}
+                    d3.csv(file_Path, function (err, data) {
+
+                        if (err) throw err;
+
+                        {#  format our data#}
+                        var dateFormat = d3.time.format('%Y-%m-%d');
+                        data.forEach(function (d) {
+                            d.Date = dateFormat(new Date(d.Date));
+
+
+                        });
+
+                        {#  Run the data through crossfilter and load our 'facts'#}
+                        facts = crossfilter(data);
+
+                        {#  Grouping all records and reducing to a single value.#}
+                        var group_All = facts.groupAll();
+
+                        {#  Add the Shipping Date dimension#}
+                        var date_Dim = facts.dimension(function (d) {
+                            {#alert(d.Date);#}
+                            return d.Date;
+                        });
+
+                        var monthNames =
+                            [
+                                "January", "February", "March",
+                                "April", "May", "June", "July",
+                                "August", "September", "October",
+                                "November", "December"
+                            ];
+
+                        {#  Setup the table#}
+                        {#  options to display in Original Table Format#}
+                        var data_Table_Options_Original = {
+
+                            {#  Restore the tables in the current context to its original state in the DOM by removing all of DataTables enhancements #}
+                            destroy: true,
+                            dom: 'Blftipr',
+                            buttons: [
+                                {
+                                    extend: 'pdf',
+                                    title: 'Prediction Record',
+                                    filename: 'Performance_Record'
+                                },
+
+                                {
+                                    extend: 'excel',
+                                    title: 'Prediction Record',
+                                    filename: 'Performance_Record'
+                                },
+
+                                {
+                                    extend: 'csv',
+                                    title: 'Prediction Record',
+                                    filename: 'Performance_Record'
+                                },
+                                {
+                                    extend: 'copy',
+                                    filename: 'Performance_Record'
+                                },
+
+                                {
+                                    extend: 'print',
+                                    title: 'Predictions Record',
+
+                                }
+                            ],
+
+                            "pagingType": "full_numbers",
+                            "lengthMenu": [[10, 25, 50, 100, 500, -1], [10, 25, 50, 100, 500, "All"]],
+                            "scrollY": "700px",
+                            "scrollCollapse": true,
+
+                            columnDefs: [
+                                {
+                                    "orderable": true,
+                                    targets: 0,
+                                    data: function (d) {
+                                        return d.Date;
+                                    }
+                                },
+                                {
+                                    "orderable": true,
+                                    targets: 1,
+                                    data: function (d) {
+                                        return d.Prediction;
+                                    }
+
+                                },
+                                {
+                                    "orderable": true,
+                                    targets: 2,
+                                    data: function (d) {
+                                        return d.Prediction_lower_bound;
+                                    }
+                                },
+                                {
+                                    "orderable": true,
+                                    targets: 3,
+                                    data: function (d) {
+                                        return d.Prediction_upper_bound;
+                                    }
+                                },
+                                {
+                                    "defaultContent": "-",
+                                    "targets": "_all"
+                                }
+                            ]
+                        };
+                        {# Table of students original data - Displaying data in tabular fromat #}
+                        var data_Table_Original = $('#dc-data-table2').dataTable(data_Table_Options_Original);
+
+                        function RefreshTable() {
+                            dc.events.trigger(function () {
+                                data_Table_Original.api()
+                                    .clear()
+                                    .rows.add(date_Dim.top(Infinity))
+                                    .draw();
+                            });
+                        }
+
+
+                        RefreshTable();
+
+
+                        {#  Prediction Data calling on Click end here#}
+
+
+                    });
+
+
+                }
+
+
+            });
+
+
+        });
+
+        }
+
+
+
+    });
+
+
+</script>
+
+
+</body>
+
+
+</html>

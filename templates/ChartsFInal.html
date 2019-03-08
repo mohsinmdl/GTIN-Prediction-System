@@ -1,0 +1,1357 @@
+<!--
+                '''
+             @(#)index.html
+
+                Copyright (c) 2018 - 2020 Majestic International Technologies, Inc.
+                Majestic Technologies, Lahore, Pakistan.
+                All rights reserved.
+
+                This software project is the confidential and proprietary information of
+                Majestic Technologies, Inc. ("Confidential Information").  You shall not
+                disclose such Confidential Information and shall use it only in
+                accordance with the terms of the license agreement you entered into
+                with Majestic.
+             '''
+
+            '''                           +---------+-----------------------------------------------------+
+                                          |  Title  |   Visualization and Result Prediction Of Students   |
+            +-----------------------------+---------+-----------------------------------------------------+---------------------+
+            |
+            | Project              :    Majestic Technologies
+            | Author(s)            :    Sir Rao Adeel Nawab |M. Usman Shafique | Abdur Rauf <raufjavid5@gmail.com>|
+            | Date                 :    16 - April - 2018
+            | Version              :    1.0
+            | Status               :    Active
+            | Technology           :    Python | HTML | CSS | JavaScript | jQuery | Modernizr
+            | IDE                  :    PyCharm
+            | Web Framework        :    Django
+            | Front End Design     :    Bootstrap
+            | Font & Icon Toolkit  :    Font Awesome
+            | License              :    Creative Commons Attribution 3.0 Unported
+            | License URL          :    http://creativecommons.org/licenses/by/3.0/
+            | Author URL           :    MajesticSoftwareHouse.com
+            |
+            +--------------------------------------------------------------------------------------------------------------------+
+
+
+            +----------------------------+---------------------------------------------------------------------------------------+
+            | Purpose of Program/Project | Visualization and Result Prediction of different Students based on their Percentage.
+            +----------------------------+---------------------------------------------------------------------------------------+
+            | Input                      | 1. A training dataset, in which each row contain st_reg_no, St_Name,
+            |                            | class_name, section_name and Percentage.
+            |                            | 2. A dump file of individual class for future predictions.
+            |----------------------------+---------------------------------------------------------------------------------------+
+            | Output                     | 1. Visualization of Data.
+            |                            | 2. Predicted Percentage for each Input Student entry.
+            +----------------------------+---------------------------------------------------------------------------------------+
+
+
+                                                                +-------------------+
+                                                                | Coding Guidelines |
+            +---------------------------------------------------+-------------------+--------------------------------------------+
+            |
+            | 1- Standard Syntax for variables, functions declarations.
+            | 2- First letter of Documentations, Comments should be capitalized.
+            | 3- Don't leave unused code in files.
+            {#| 4- Commenting format should be like i-e    Comments   #}
+            +--------------------------------------------------------------------------------------------------------------------+
+
+
+                                                                    +---------+
+                                                                    | Updated |
+            +-------------------------------------------------------+---------+-------------------------------------------------+
+            |
+            |1 - index.html file is updated according to standards and guidelines of SRA(Sir Rao Adeel).
+            |
+            +-------------------------------------------------------------------------------------------------------------------+
+
+                                           +------------------------+
+                                           |    HyperParameters     |
+            +------------------------------+---+--------------------+-----------------------------------------------------------+
+            |   variable                       |                                 Description
+            +----------------------------------+--------------------------------------------------------------------------------+
+            |   class_Selected                 | store selected class
+            |   group_All                      | grouping all records and reducing to a single value
+            |   file_Path                      | path and name of the file
+            |   facts                          | store the facts loaded from a csv file
+            |   sel_Text                       | store the text contents of the selected element
+            |   section_Name                   | store section name
+            |   section_Group_Array            | array of the Section groups
+            |   sel_Text_Section               | store section name on user click
+            |   shipping_Dim                        | store the Shipping Date dimension
+            |   section_Dim                    | section dimension
+            |   data_Table_Options_Original    | options to display in Original table Format
+            |   section_Group                  | grouping for the section dimension
+            |   data_Table_Original            | table of students original data
+            |   store_Percentage_Column        | store percentage column in array format
+            |   data_Table_Options_Predicted   | options to display in Predicted table Format
+            |   data_Table_Predicted           | table of students predicted data
+            |   tasks                          | send data from template to view
+            |   received_Data                  | received data sent by view
+            |   vis_Count                      | count all the facts
+            |   total_Count                    | total number of records
+            |   total_quantity                 | total quantity
+            |   total_Quantity_Sum             | total sum of quantity
+            |   day_Of_Week_Chart              | day of week chart
+            +----------------------------------+--------------------------------------------------------------------------------+
+            '''
+-->
+
+{# Document type declaration #}
+<!DOCTYPE HTML>
+{# Language declaration #}
+<html lang="en">
+<head>
+    <title>
+        Business Intelligence of GTIN
+    </title>
+
+    {#    Loading static files here #}
+    {% load static %}
+
+    {#    Setting the viewport to make website look good on all devices#}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {#    Character encoding for the HTML document and Information/value of the content type#}
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+    {#    Description of page#}
+    <meta name="description" content="Visualization and Sales Prediction Of GTIN">
+
+    {#    Author of Page :#}
+    <meta name="author" content="Abdur Rauf">
+
+    {#    Defining keywords for search engines#}
+    <meta name="keywords"
+          content="Visualization and Sales Prediction Of GTIN, GTIN Prediction, Sales Prediction, BI of GTIN, BI of Sales, Visualization og GTIN"/>
+
+    {#    Media type of JavaScript source code#}
+    <script type="application/javascript"> addEventListener("load", function () {
+        {# calls a function or evaluates an expression after a specified('0') number of milliseconds.#}
+        setTimeout(hideURLbar, 0);
+    }, false);
+
+    {#  scrolls the document to the specified coordinates.#}
+
+    function hideURLbar() {
+        window.scrollTo(0, 1);
+    }
+    </script>
+
+    {#  The {% static %} template tag generates the absolute URL of static files.#}
+    {#  load the bootstrap.css  - Bootstrap's Style Sheet #}
+    <link href="{% static 'css7/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all">
+
+    {#	Load the Custom Theme files #}
+    <link href="{% static 'css7/style.css' %}" rel="stylesheet" type="text/css" media="all"/>
+
+    {#  Load jquery (necessary for Bootstrap's JavaScript plugins) - Compressed version #}
+    <script src="{% static 'js4/jquery-2.1.1.min.js' %}"></script>
+
+    {#  Load Font Awesome, a font and icon toolkit based on CSS and LESS.#}
+    <link href="{% static 'css7/font-awesome.css' %}" rel="stylesheet">
+
+    {#	Load Google Fonts#}
+    <link href="//fonts.googleapis.com/css?family=Carrois+Gothic" rel='stylesheet' type='text/css'>
+    <link href="//fonts.googleapis.com/css?family=Work+Sans:400,500,600" rel='stylesheet' type='text/css'>
+
+    {#	 Load the Chart library - Chart a Javascript library that allows designers and developers to draw all kinds of charts using the HTML5 canvas element.#}
+    <script src="{% static 'js4/Chart.min.js' %}"></script>
+
+    {# Load Responsive dashboard templates for Bootstrap    #}
+    <link rel="stylesheet" href="{% static 'js2/keen-dashboards.css' %}">
+
+    {# Load jquery 1.9.1 - Compressed version    #}
+    <script src="{% static 'js2/jquery-1.9.1.min.js' %}" type='text/javascript'></script>
+
+    {#  <script src="{% static  'js2/bootstrap.min.js'%}" type='text/javascript'></script>#}
+    {#  Load bootstrap style sheet  - Compressed Version  #}
+    <link href="{% static 'js2/bootstrap.min.css' %}" rel='stylesheet' type='text/css'>
+
+    {#  load the crossfilter.js library - Crossfilter a JavaScript library for exploring large multivariate datasets in the browser.#}
+    <script src="{% static 'js2/crossfilter.js' %}"></script>
+
+    {#   load the d3.js library - D3 a JavaScript library for producing dynamic, interactive data visualizations in web browsers.#}
+    <script src="{% static 'js2/d3.js' %}"></script>
+
+    {#  Load the cc library - Dc a multi-dimensional charting library built to work natively with crossfilter and rendered using d3.js.#}
+    <script src="{% static 'js2/dc.js' %}"></script>
+
+    {#  Load the Datatables library - DataTables is a table enhancing plug-in for the jQuery Javascript library, adding sorting, paging and filtering abilities to plain HTML tables with minimal effort..#}
+    <script type="text/javascript" src="{% static 'js2/jquery.dataTables.js' %}"></script>
+
+    {#  Load cc Style Sheet#}
+    <link rel="stylesheet" href="{% static 'js2/dc.css' %}">
+
+    {#   Load Datatables Style Sheets#}
+    <link href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.css" rel="stylesheet"/>
+
+    {#  Load Datatables jquery - Compressed version#}
+    <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet"/>
+
+    {#  Load Datatables Buttons library Style Sheets#}
+    <link href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.css" rel="stylesheet"/>
+
+    {#  Load Datatables Buttons library Style Sheets - Compressed version#}
+    <link href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.min.css" rel="stylesheet"/>
+
+    {#   Load jQuery from a CDN (Content Delivery Network).#}
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+
+    {#   Load Datatables - DataTables is a table enhancing plug-in for the jQuery Javascript library, adding sorting, paging and filtering abilities to plain HTML tables with minimal effort..#}
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+
+    {#   Load JSZip library -JSZip a javascript library for creating, reading and editing .zip files - Compressed version#}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+
+    {#   Load Datatables Buttons library - Compressed version#}
+    <script src="https://cdn.datatables.net/buttons/1.4.2/js/dataTables.buttons.min.js"></script>
+
+    {#   Load pdfMake library - Client/server side PDF printing in pure JavaScript - Compressed version#}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
+
+    {#   Load vfs_fonts library - pdfMake uses a 2nd file: vfs_fonts.js for fonts (and other files) you wish to embed into your generated PDFs.#}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
+
+    {#   Load  HTML5 export buttons plug-in for Buttons - Compressed version #}
+    <script src="https://cdn.datatables.net/buttons/1.4.2/js/buttons.html5.min.js"></script>
+
+    {#   Load Print button library - will open a new window in the end user's browser and, by default, automatically trigger the print function allowing the end user to print the table - Compressed version #}
+    <script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script>
+
+    {#    Load Skycons library - Skycons is a set of ten animated weather glyphs, procedurally generated by JavaScript using the HTML5 canvas tag.#}
+    <script src="{% static 'js4/skycons.js' %}"></script>
+
+    {#	Load button Style Sheet#}
+    <link href="{% static 'css7/demo-page.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'css7/hover.css' %}" rel="stylesheet" media="all">
+
+
+    <!-- Plotly.js -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    {#Load library for pareto chart    #}
+    <script src="{% static 'js2/gdca.js' %}"></script>
+
+
+</head>
+
+<body>
+<div class="page-container">
+
+    <div class="left-content">
+
+        <div class="mother-grid-inner">
+            <!--Header start here-->
+            <div class="header-main">
+
+                <div class="header-left">
+
+                    <div class="logo-name">
+
+                        <a href="{% url 'index' %}"><h1>Majestic</h1>
+                            <!--<img id="logo" src="" alt="Logo"/>-->
+                        </a>
+
+                    </div>
+
+                    <!--Clearfix allows a container to wrap it's floated children.-->
+                    <div class="clearfix"></div>
+
+                </div>
+
+                <div class="header-right">
+
+                    <div class="profile_details_left"><!--Notifications of menu start -->
+
+                        <ul class="nofitications-dropdown">
+                            <li class="dropdown head-dpdn">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i
+                                        class="fa fa-envelope"></i><span class="badge">3</span></a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <div class="notification_header">
+                                            <h3>You have 3 new messages</h3>
+                                        </div>
+                                    </li>
+                                    <li><a href="#">
+                                        <div class="user_img"><img src="{% static 'images5/p4.png' %}" alt=""></div>
+                                        <div class="notification_desc">
+                                            <p>Lorem ipsum dolor</p>
+                                            <p><span>1 hour ago</span></p>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </a></li>
+                                    <li class="odd"><a href="#">
+                                        <div class="user_img"><img src="{% static 'images5/p2.png' %}" alt=""></div>
+                                        <div class="notification_desc">
+                                            <p>Lorem ipsum dolor </p>
+                                            <p><span>1 hour ago</span></p>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </a></li>
+                                    <li><a href="#">
+                                        <div class="user_img"><img src="{% static 'images5/p3.png' %}" alt=""></div>
+                                        <div class="notification_desc">
+                                            <p>Lorem ipsum dolor</p>
+                                            <p><span>1 hour ago</span></p>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </a></li>
+                                    <li>
+                                        <div class="notification_bottom">
+                                            <a href="#">See all messages</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="dropdown head-dpdn">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i
+                                        class="fa fa-bell"></i><span class="badge blue">3</span></a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <div class="notification_header">
+                                            <h3>You have 3 new notification</h3>
+                                        </div>
+                                    </li>
+                                    <li><a href="#">
+                                        <div class="user_img"><img src="{% static 'images5/p5.png' %}" alt=""></div>
+                                        <div class="notification_desc">
+                                            <p>Lorem ipsum dolor</p>
+                                            <p><span>1 hour ago</span></p>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </a></li>
+                                    <li class="odd"><a href="#">
+                                        <div class="user_img"><img src="{% static 'images5/p6.png' %}" alt=""></div>
+                                        <div class="notification_desc">
+                                            <p>Lorem ipsum dolor</p>
+                                            <p><span>1 hour ago</span></p>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </a></li>
+                                    <li><a href="#">
+                                        <div class="user_img"><img src="{% static 'images5/p7.png' %}" alt=""></div>
+                                        <div class="notification_desc">
+                                            <p>Lorem ipsum dolor</p>
+                                            <p><span>1 hour ago</span></p>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </a></li>
+                                    <li>
+                                        <div class="notification_bottom">
+                                            <a href="#">See all notifications</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="dropdown head-dpdn">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i
+                                        class="fa fa-tasks"></i><span class="badge blue1">9</span></a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <div class="notification_header">
+                                            <h3>You have 8 pending task</h3>
+                                        </div>
+                                    </li>
+                                    <li><a href="#">
+                                        <div class="task-info">
+                                            <span class="task-desc">Database update</span><span
+                                                class="percentage">40%</span>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="progress progress-striped active">
+                                            <div class="bar yellow" style="width:40%;"></div>
+                                        </div>
+                                    </a></li>
+                                    <li><a href="#">
+                                        <div class="task-info">
+                                            <span class="task-desc">Dashboard done</span><span
+                                                class="percentage">90%</span>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="progress progress-striped active">
+                                            <div class="bar green" style="width:90%;"></div>
+                                        </div>
+                                    </a></li>
+                                    <li><a href="#">
+                                        <div class="task-info">
+                                            <span class="task-desc">Mobile App</span><span class="percentage">33%</span>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="progress progress-striped active">
+                                            <div class="bar red" style="width: 33%;"></div>
+                                        </div>
+                                    </a></li>
+                                    <li><a href="#">
+                                        <div class="task-info">
+                                            <span class="task-desc">Issues fixed</span><span
+                                                class="percentage">80%</span>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="progress progress-striped active">
+                                            <div class="bar  blue" style="width: 80%;"></div>
+                                        </div>
+                                    </a></li>
+                                    <li>
+                                        <div class="notification_bottom">
+                                            <a href="#">See all pending tasks</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                        <!--Clearfix allows a container to wrap it's floated children.-->
+                        <div class="clearfix"></div>
+
+                    </div>
+                    <!--//Notification menu end -->
+
+                    <!--Profile menu start -->
+                    <div class="profile_details">
+
+                        <ul>
+
+                            <li class="dropdown profile_details_drop">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                    <div class="profile_img">
+                                        <span class="prfil-img"><img src="{% static 'images5/p1.png' %}" alt=""> </span>
+                                        <div class="user-name">
+                                            <p>Malorum</p>
+                                            <span>Administrator</span>
+                                        </div>
+                                        <i class="fa fa-angle-down lnr"></i>
+                                        <i class="fa fa-angle-up lnr"></i>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </a>
+                                <ul class="dropdown-menu drp-mnu">
+                                    <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
+                                    <li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
+                                    <li><a href="#"><i class="fa fa-sign-out"></i> Logout</a></li>
+                                </ul>
+                            </li>
+
+                        </ul>
+
+                    </div>
+                    <!--//Profile menu end here-->
+
+                    <!--Clearfix allows a container to wrap it's floated children.-->
+                    <div class="clearfix"></div>
+                </div>
+
+                <!--Clearfix allows a container to wrap it's floated children.-->
+                <div class="clearfix"></div>
+            </div>
+            <!--Header end here-->
+
+            <!-- script-for sticky-nav -->
+            <script>
+                $(document).ready(function () {
+                    var navoffeset = $(".header-main").offset().top;
+                    $(window).scroll(function () {
+                        var scrollpos = $(window).scrollTop();
+                        if (scrollpos >= navoffeset) {
+                            $(".header-main").addClass("fixed");
+                        } else {
+                            $(".header-main").removeClass("fixed");
+                        }
+                    });
+                });
+            </script>
+            <!-- /script-for sticky-nav -->
+
+            <!--inner block start here-->
+            <div class="inner-block">
+
+                <div class="chart-main-block">
+
+                    <div class='container' style='font: 12px sans-serif;'>
+
+                        {#  Display all the facts  #}
+                        <div class="dc-data-count" style="float: left;">
+                            <h4>
+                                <span>
+                                    <span class="filter-count"></span>
+                                    selected out of
+                                    <span class="total-count"></span>
+                                    records
+                                    <br><br>
+                                    <a href="javascript:dc.filterAll(); dc.renderAll(); "
+                                       class="btn btn-primary btn-lg active" role="button">Reset All</a>
+                                </span>
+                            </h4>
+                        </div>
+
+                        {#   Total number of records#}
+                        <div class="row large">
+                            <div class="span12">
+                                <div class="chart-wrapper">
+                                    <div class="chart-title"
+                                         style="font-size: x-large;background-color: blue;color: white">
+                                        Total Number of Order's Placed - (Monthly Basis)
+                                    </div>
+                                    <div class="chart-stage" style="font-size: x-large; ">
+                                        <div id="total-GTIN"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        {#  Total quantity #}
+                        <div class="row">
+                            <div class="span12">
+                                <div class="chart-wrapper">
+                                    <div class="chart-title"
+                                         style="font-size: x-large;background-color: blue ;color: white">
+                                        Total Quantity
+                                    </div>
+                                    <div class="chart-stage" style="font-size: x-large">
+                                        <div id="total-quantity"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        {#  Pareto chart #}
+                        <div class='row'>
+
+                            <div class='span12 chart-wrapper' id="chart1">
+                                <div class="chart-wrapper">
+                                    <div class="chart-title"
+                                         style="font-size: x-large; background-color: #66512c; color: white ">
+                                        <h4>Pareto chart</h4>
+                                    </div>
+                                </div>
+                                <span class="reset" style="display: none;">
+                                    Selected:
+                                    <span class="filter">
+
+                                    </span>
+                                </span>
+                                <br>
+                                <a class="reset btn btn-primary btn-lg active"
+                                   href="javascript:theBarChart.filterAll();dc.redrawAll();" role="button"
+                                   style="display: none; float: right;">Reset</a>
+
+                                <div class="clearfix"></div>
+
+                            </div>
+
+                        </div>
+
+                        {#  Day of week chart #}
+                        <div class='row'>
+
+                            <div class='span12 chart-wrapper' id="dc-dayweek-chart">
+                                <div class="chart-wrapper">
+                                    <div class="chart-title"
+                                         style="font-size: x-large; background-color: orangered; color: white ">
+                                        <h4>Day of the Week - Orders  - ( Click to view Result )</h4>
+                                    </div>
+                                </div>
+                                <span class="reset" style="display: none;">
+                                    Selected:
+                                    <span class="filter">
+
+                                    </span>
+                                </span>
+                                <br>
+                                <a class="reset btn btn-primary btn-lg active"
+                                   href="javascript:day_Of_Week_Chart.filterAll();dc.redrawAll();" role="button"
+                                   style="display: none; float: right;">Reset</a>
+
+                                <div class="clearfix"></div>
+
+                            </div>
+
+                        </div>
+
+                        {#  Order Per Month #}
+                        <div class='row'>
+
+                            <div class='span12 chart-wrapper' id="dc-month-chart">
+                                <div class="chart-wrapper">
+                                    <div class="chart-title"
+                                         style="font-size: x-large; background-color: darkmagenta; color: white ">
+                                        <h4>Order Per Month - ( Drag to view Result )</h4>
+                                    </div>
+                                </div>
+                                <span class="reset" style="display: none;">
+                                    Selected:
+                                    <span class="filter">
+
+                                    </span>
+                                </span>
+                                <br>
+                                <a class="reset btn btn-primary btn-lg active"
+                                   href="javascript:month_Chart.filterAll();dc.redrawAll();" role="button"
+                                   style="display: none; float: right;">Reset</a>
+
+                                <div class="clearfix"></div>
+
+                            </div>
+
+                        </div>
+
+                        {#  Top product orderwise #}
+                        <div class='row'>
+
+                            <div class='span12 chart-wrapper' id="dc-product-chart">
+                                <div class="chart-wrapper">
+                                    <div class="chart-title"
+                                         style="font-size: x-large; background-color: teal; color: white ">
+                                        <h4>Order Wise GTIN - ( Top 25 )  - ( Click to view Result )</h4>
+                                    </div>
+                                </div>
+                                <span class="reset" style="display: none;">
+                                    Selected:
+                                    <span class="filter">
+
+                                    </span>
+                                </span>
+                                <br>
+                                <a class="reset btn btn-primary btn-lg active"
+                                   href="javascript:product_Chart.filterAll();dc.redrawAll();" role="button"
+                                   style="display: none; float: right;">Reset</a>
+
+                                <div class="clearfix"></div>
+
+                            </div>
+
+                        </div>
+
+
+                        {#  Top product quantity wise #}
+                        <div class='row'>
+
+                            <div class='span12 chart-wrapper' id="dc-product-quantity-chart">
+                                <div class="chart-wrapper">
+                                    <div class="chart-title"
+                                         style="font-size: x-large; background-color: teal; color: white ">
+                                        <h4>Quantity Wise GTIN - ( Top 25 ) - ( Click to view Result )</h4>
+                                    </div>
+                                </div>
+                                <span class="reset" style="display: none;">
+                                    Selected:
+                                    <span class="filter">
+
+                                    </span>
+                                </span>
+                                <br>
+                                <a class="reset btn btn-primary btn-lg active"
+                                   href="javascript:product_Quantity_Chart.filterAll();dc.redrawAll();" role="button"
+                                   style="display: none; float: right;">Reset</a>
+
+                                <div class="clearfix"></div>
+
+                            </div>
+
+                        </div>
+
+                        {#  Quantity wise grouping #}
+                        <div class='row'>
+
+                            <div class='span12 chart-wrapper' id="dc-quantity-chart">
+                                <div class="chart-wrapper">
+                                    <div class="chart-title"
+                                         style="font-size: x-large; background-color: #66512c; color: white ">
+                                        <h4>Quantity Wise Grouping - ( Top 15 ) - ( Click to view Result )</h4>
+                                    </div>
+                                </div>
+                                <span class="reset" style="display: none;">
+                                    Selected:
+                                    <span class="filter">
+
+                                    </span>
+                                </span>
+                                <br>
+                                <a class="reset btn btn-primary btn-lg active"
+                                   href="javascript:quantity_Chart.filterAll();dc.redrawAll();" role="button"
+                                   style="display: none; float: right;">Reset</a>
+
+                                <div class="clearfix"></div>
+
+                            </div>
+
+                        </div>
+
+
+                        {#  Quarterly #}
+                        <div class='row'>
+
+                            <div class='span12 chart-wrapper' id="dc-quarter-chart">
+                                <div class="chart-wrapper">
+                                    <div class="chart-title"
+                                         style="font-size: x-large; background-color: forestgreen; color: white ">
+                                        <h4>Quarterly Order - ( Click to view Result ) - ( Click to view Result )</h4>
+                                    </div>
+                                </div>
+                                <span class="reset" style="display: none;">
+                                    Selected:
+                                    <span class="filter">
+
+                                    </span>
+                                </span>
+                                <br>
+                                <a class="reset btn btn-primary btn-lg active"
+                                   href="javascript:quarter_Chart.filterAll();dc.redrawAll();" role="button"
+                                   style="display: none; float: right;">Reset</a>
+
+                                <div class="clearfix"></div>
+
+                            </div>
+
+                        </div>
+
+
+                        {#  Data in tabular Format#}
+                        <div class='row'>
+
+                            <div class='span12 chart-wrapper'>
+                                <div class="chart-wrapper">
+                                    <div class="chart-title"
+                                         style="font-size: x-large; background-color: darkslateblue; color: white ">
+                                        <h3>
+                                            GTIN Record - (Click the Headers to Sort the Table accordingly)
+                                        </h3>
+                                    </div>
+
+                                </div>
+                                <table id="dc-data-table" class="list table table-striped table-bordered">
+                                    <thead>
+                                    <tr class='header' style="background-color: Cornsilk ;">
+                                        <th> Shiping Date</th>
+                                        <th> Description</th>
+                                        <th> Quantity</th>
+                                    </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+            <!--inner block end here-->
+
+            <!--Copy rights start here-->
+            <div class="copyrights">
+
+                <p>© 2016 Majestic. All Rights Reserved | Design by <a href="http://w3layouts.com/" target="_blank">Abdur
+                    Rauf</a>
+                </p>
+
+            </div>
+            <!--COPY rights end here-->
+        </div>
+    </div>
+
+    <!--Slider menu-->
+    <div class="sidebar-menu">
+
+        <div class="logo">
+            <a href="#" class="sidebar-icon">
+                <span class="fa fa-bars"></span>
+            </a>
+            <a href="#">
+            <span id="logo">
+
+            </span>
+                <!--<img id="logo" src="" alt="Logo"/>-->
+            </a>
+
+        </div>
+
+        <div class="menu">
+
+            <ul id="menu">
+
+                <li id="menu-home">
+                    <a href="{% url 'index' %}">
+                        <i class="fa fa-tachometer">
+
+                        </i><span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-cogs"></i>
+                        <span>Components</span>
+                        <span class="fa fa-angle-right" style="float: right">
+
+                        </span>
+                    </a>
+
+                    <ul>
+
+                        <li>
+
+                            <a href="{% static 'html1/grids.html' %}">Grids</a>
+                        </li>
+                        <li>
+                            <a href="{% static 'html1/portlet.html' %}">Portlets</a>
+                        </li>
+
+                    </ul>
+
+                </li>
+
+                <li id="menu-comunicacao"><a href="#"><i class="fa fa-book nav_icon"></i><span>Element</span><span
+                        class="fa fa-angle-right" style="float: right"></span></a>
+
+                    <ul id="menu-comunicacao-sub">
+
+                        <li id="menu-mensagens" style="width: 120px">
+                            <a href="{% static 'html1/buttons.html' %}">Buttons</a>
+                        </li>
+
+                        <li id="menu-arquivos">
+                            <a href="{% static 'html1/typography.html' %}">Typography</a>
+                        </li>
+                        <li id="menu-arquivos">
+                            <a href="{% static 'html1/icons.html' %}">Icons</a>
+                        </li>
+
+                    </ul>
+
+                </li>
+
+                <li>
+                    <a href="{% static 'html1/maps.html' %}"><i class="fa fa-map-marker"></i><span>Maps</span>
+                    </a>
+                </li>
+
+                <li id="menu-academico">
+                    <a href="#"><i class="fa fa-file-text"></i><span>Pages</span><span
+                            class="fa fa-angle-right" style="float: right"></span>
+                    </a>
+                    <ul id="menu-academico-sub">
+                        <li id="menu-academico-boletim">
+                            <a href="{% static 'html1/login.html' %}">Login</a>
+                        </li>
+                        <li id="menu-academico-avaliacoes">
+                            <a href="{% static 'html1/signup.html' %}">Sign Up</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="{% url 'charts' %}"><i class="fa fa-bar-chart"></i><span>Charts</span></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-envelope"></i><span>Mailbox</span><span class="fa fa-angle-right"
+                                                                                        style="float: right"></span>
+                    </a>
+                    <ul id="menu-academico-sub">
+
+                        <li id="menu-academico-avaliacoes">
+                            <a href="{% static 'html/inbox.html' %}">Inbox</a>
+                        </li>
+                        <li id="menu-academico-boletim">
+                            <a href="{% static 'html1/inbox-details.html' %}">Compose
+                                email</a>
+                        </li>
+
+                    </ul>
+
+                </li>
+
+                <li>
+                    <a href="#"><i class="fa fa-cog"></i><span>System</span><span class="fa fa-angle-right"
+                                                                                  style="float: right"></span>
+                    </a>
+
+                    <ul id="menu-academico-sub">
+
+                        <li id="menu-academico-avaliacoes">
+                            <a href="{% static 'html1/404.html' %}">404
+                            </a>
+                        </li>
+                        <li id="menu-academico-boletim">
+                            <a href="{% static 'html1/blank.html' %}">Blank
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </li>
+
+                <li>
+
+                    <a href="#"><i class="fa fa-shopping-cart"></i><span>E-Commerce</span><span
+                            class="fa fa-angle-right" style="float: right"></span>
+                    </a>
+
+                    <ul id="menu-academico-sub">
+
+                        <li id="menu-academico-avaliacoes">
+                            <a href="{% static 'html1/product.html' %}">Product</a>
+                        </li>
+                        <li id="menu-academico-boletim">
+                            <a href="{% static 'html1/price.html' %}">Price
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+    <!--Clearfix allows a container to wrap it's floated children.-->
+    <div class="clearfix"></div>
+
+</div>
+<!--Slide bar menu end here-->
+
+<script>
+    var toggle = true;
+
+    $(".sidebar-icon").click(function () {
+        if (toggle) {
+            $(".page-container").addClass("sidebar-collapsed").removeClass("sidebar-collapsed-back");
+            $("#menu span").css({"position": "absolute"});
+        }
+        else {
+            $(".page-container").removeClass("sidebar-collapsed").addClass("sidebar-collapsed-back");
+            setTimeout(function () {
+                $("#menu span").css({"position": "relative"});
+            }, 400);
+        }
+        toggle = !toggle;
+    });
+</script>
+
+{# Loading scrolling js#}
+<script src="{% static 'js4/jquery.nicescroll.js' %}"></script>
+<script src="{% static 'js4/scripts.js' %}"></script>
+
+{# Including Bootstrap - Bootstrap a free and open-source front-end library for designing websites and web applications. #}
+<script src="{% static 'js4/bootstrap.js' %}"></script>
+
+<!-- Mother grid end here-->
+
+{#  d3 and dc library implementation#}
+<script>
+
+    {#  Create the dc.js chart objects & link to div#}
+
+    {#  Count all the facts#}
+    var vis_Count = dc.dataCount(".dc-data-count");
+
+    {# Total number of records #}
+    var total_Count = dc.numberDisplay("#total-GTIN");
+
+    {#  Total quantity#}
+    var total_quantity = dc.numberDisplay("#total-quantity");
+
+
+    {# Path of file#}
+    var file_Path = "{% static 'csv3/GTIN data v3 Sorted.csv'%}";
+
+    {#  Variable to store loaded facts#}
+    var facts;
+
+    {#  Day of week chart#}
+    var day_Of_Week_Chart = dc.rowChart("#dc-dayweek-chart");
+
+    var month_Chart = dc.lineChart("#dc-month-chart");
+
+
+    var product_Chart = dc.rowChart("#dc-product-chart");
+
+    var product_Quantity_Chart = dc.rowChart("#dc-product-quantity-chart");
+
+    var quantity_Chart = dc.rowChart("#dc-quantity-chart");
+
+    var quarter_Chart = dc.pieChart('#dc-quarter-chart');
+
+
+    var col = "Description"; // many bars/points
+    {#var col = "Quantity"; // few#}
+
+    var theCompositeChart = dc.compositeChart("#chart1");
+    var theBarChart = dc.barChart(theCompositeChart);
+
+
+    // Load data from a csv file
+    d3.csv(file_Path, function (err, data) {
+
+        {#  Sample data from csv file#}
+        {#---------------------------------#}
+        {#GTINShipDate,Description,Quantity#}
+        {#2/16/2016,40lb 25-28ct - CV,1#}
+        {#2/16/2016,40lb 55ct,1#}
+
+        if (err) throw err;
+
+        {#  format our data#}
+        var dateFormat = d3.time.format('%Y-%m-%d');
+        data.forEach(function (d) {
+            d.GTINShipDate = new Date(d.GTINShipDate);
+
+
+        });
+
+        {#  Run the data through crossfilter and load our 'facts'#}
+        facts = crossfilter(data);
+
+        {#  Grouping all records and reducing to a single value.#}
+        var group_All = facts.groupAll();
+
+        {#  Add the Shipping Date dimension#}
+        var shipping_Dim = facts.dimension(function (d) {
+            return d.GTINShipDate;
+        });
+
+        var total_Quantity_Sum = facts.groupAll().reduceSum(function (d) {
+            return d["Quantity"];
+        });
+
+        // row chart Day of Week
+        var dayOfWeek = facts.dimension(function (d) {
+            var day = d.GTINShipDate.getDay();
+            switch (day) {
+                case 0:
+                    return "0.Sun";
+                case 1:
+                    return "1.Mon";
+                case 2:
+                    return "2.Tue";
+                case 3:
+                    return "3.Wed";
+                case 4:
+                    return "4.Thu";
+                case 5:
+                    return "5.Fri";
+                case 6:
+                    return "6.Sat";
+            }
+        });
+        var dayOfWeekGroup = dayOfWeek.group();
+
+        {# month wise order#}
+        var order_By_Month = facts.dimension(function (d) {
+            return d3.time.month(d.GTINShipDate);
+        });
+        var order_By_Month_Group = order_By_Month.group().reduceSum(function (d) {
+            return d["Quantity"];
+        });
+
+        var product_Dim = facts.dimension(function (d) {
+            return d["Description"];
+        });
+
+        var product_Dim_Group = product_Dim.group();
+
+
+        var product_Quantity_Dim = facts.dimension(function (d) {
+            return d["Description"];
+        });
+
+        var product_Quantity_Dim_Group = product_Quantity_Dim.group().reduceSum(function (d) {
+            return d.Quantity;
+        });
+
+        var quantity_Dim = facts.dimension(function (d) {
+            return d["Quantity"];
+        });
+
+        var quantity_Dim_Group = quantity_Dim.group();
+
+
+        // Summarize order by quarter
+        var quarter = facts.dimension(function (d) {
+            var month = d.GTINShipDate.getMonth();
+            if (month <= 2) {
+                return 'Q1';
+            } else if (month > 2 && month <= 5) {
+                return 'Q2';
+            } else if (month > 5 && month <= 8) {
+                return 'Q3';
+            } else {
+                return 'Q4';
+            }
+        });
+        var quarterGroup = quarter.group().reduceSum(function (d) {
+            return d.Quantity;
+        });
+        {#--------------------------------------------------------------------------------#}
+
+
+        data.forEach(function (d) {
+            d[col] = d[col];
+        });
+
+        gdca.cf = crossfilter(data);
+
+        var xdim = gdca.cf.dimension(function (d) {
+            return d[col];
+        });
+
+        var xgrp = xdim.group().reduceCount(function (d) {
+            return d.Quantity;
+        });
+
+
+        gdca.pareto.domain(xgrp);
+        theBarChart
+            .dimension(xdim)
+            .centerBar(true)
+            .group(gdca.pareto.createTempOrderingGroup(), "# Samples");
+
+        theCompositeChart
+            .height(500)
+            .x(d3.scale.ordinal().domain(gdca.pareto.getDomain()))
+            .xUnits(dc.units.ordinal)
+            .compose([theBarChart,
+                dc.lineChart(theCompositeChart)
+                    .dimension(xdim)
+                    .colors('red')
+                    .useRightYAxis(true)
+                    .group(gdca.pareto.createTempOrderingGroupReversed(), "Cumulative %")
+                    .renderDataPoints({
+                        radius: 15,
+                        fillOpacity: 0.5,
+                        strokeOpacity: 0.8
+                    })
+            ])
+            .render();
+        theCompositeChart
+            .render(function (c) {
+                c.selectAll("g.x text").attr('dx', '-15');
+            });
+
+        {#----------------------------------------------------------------------------------#}
+
+
+
+
+
+        {#  Setup the charts#}
+
+        {#  Count all the facts#}
+        vis_Count
+            .dimension(facts)
+            .group(group_All);
+
+        {#  Total number of records#}
+        total_Count
+            .formatNumber(d3.format("d"))
+            .valueAccessor(function (d) {
+                return d;
+            })
+            .group(group_All);
+
+        {# Total quantity#}
+        total_quantity
+            .formatNumber(d3.format("d"))
+            .valueAccessor(function (d) {
+                return d;
+            })
+            .group(total_Quantity_Sum)
+            .formatNumber(d3.format(",")); // millions, 1 decimal place
+
+        {#  row chart day of week#}
+        day_Of_Week_Chart
+            .margins({top: 5, left: 10, right: 10, bottom: 20})
+            .dimension(dayOfWeek)
+            .group(dayOfWeekGroup)
+            .colors(d3.scale.category10())
+            .label(function (d) {
+                return d.key.split(".")[1];
+            })
+            .title(function (d) {
+                return d.value;
+            })
+            .elasticX(true)
+            .xAxis().ticks(4);
+
+        {#   month graph#}
+        month_Chart
+            .height(450)
+            .margins({top: 10, right: 10, bottom: 20, left: 40})
+            .dimension(order_By_Month)
+            .group(order_By_Month_Group)
+            .transitionDuration(500)
+            .renderHorizontalGridLines(true)
+            .renderVerticalGridLines(true)
+            .elasticY(true)
+            .x(d3.time.scale().domain(d3.extent(data, function (d) {
+                return d.GTINShipDate;
+            })))
+            .xAxis();
+
+        quantity_Chart
+            .height(500)
+            .dimension(quantity_Dim)
+            .group(quantity_Dim_Group)
+            .elasticX(true)
+            .data(function (group) {
+                return group.top(15);
+            });
+
+        product_Chart
+            .height(1000)
+            .dimension(product_Dim)
+            .group(product_Dim_Group)
+            .elasticX(true)
+            .data(function (group) {
+                return group.top(25);
+            });
+
+
+        product_Quantity_Chart
+            .height(1000)
+            .dimension(product_Quantity_Dim)
+            .group(product_Quantity_Dim_Group)
+            .elasticX(true)
+            .data(function (group) {
+                return group.top(25);
+            });
+
+        quarter_Chart
+            .height(480)
+            .radius(80)
+            .innerRadius(30)
+            .externalLabels(50)
+            .drawPaths(true)
+            .dimension(quarter)
+            .group(quarterGroup)
+            .legend(dc.legend());
+
+
+        var monthNames =
+            [
+                "January", "February", "March",
+                "April", "May", "June", "July",
+                "August", "September", "October",
+                "November", "December"
+            ];
+
+        {#  Setup the table#}
+        {#  options to display in Original Table Format#}
+        var data_Table_Options_Original = {
+
+            {#  Restore the tables in the current context to its original state in the DOM by removing all of DataTables enhancements #}
+            destroy: true,
+            dom: 'Blftipr',
+            buttons: [
+                {
+                    extend: 'pdf',
+                    title: 'Predictions Record',
+                    filename: 'Performance_Record'
+                },
+
+                {
+                    extend: 'excel',
+                    title: 'Predictions Record',
+                    filename: 'Performance_Record'
+                },
+
+                {
+                    extend: 'csv',
+                    title: 'Predictions Record',
+                    filename: 'Performance_Record'
+                },
+                {
+                    extend: 'copy',
+                    filename: 'Performance_Record'
+                },
+
+                {
+                    extend: 'print',
+                    title: 'Predictions Record'
+
+                }
+            ],
+
+            "pagingType": "full_numbers",
+            "lengthMenu": [[10, 25, 50, 100, 500, -1], [10, 25, 50, 100, 500, "All"]],
+            "scrollY": "700px",
+            "scrollCollapse": true,
+
+            columnDefs: [
+                {
+                    "orderable": true,
+                    targets: 0,
+                    data: function (d) {
+                        return dateFormat(d.GTINShipDate);
+                    }
+                },
+                {
+                    "orderable": true,
+                    targets: 1,
+                    data: function (d) {
+                        return d.Description;
+                    }
+
+                },
+                {
+                    "orderable": true,
+                    targets: 2,
+                    data: function (d) {
+                        return d.Quantity;
+                    }
+                },
+                {
+                    "defaultContent": "-",
+                    "targets": "_all"
+                }
+            ]
+        };
+        {# Table of students original data - Displaying data in tabular fromat #}
+        var data_Table_Original = $('#dc-data-table').dataTable(data_Table_Options_Original);
+
+        function RefreshTable() {
+            dc.events.trigger(function () {
+                data_Table_Original.api()
+                    .clear()
+                    .rows.add(shipping_Dim.top(Infinity))
+                    .draw();
+            });
+        }
+
+        for (var i = 0; i < dc.chartRegistry.list().length; i++) {
+            var chartI = dc.chartRegistry.list()[i];
+            chartI.on("filtered", RefreshTable);
+        }
+
+        //Jquery DT
+
+        window.filter = function (filters) {
+            filters.forEach(function (d, i) {
+                charts[i].filter(d);
+            });
+            renderAll();
+        };
+
+        window.reset = function (i) {
+            charts[i].filter(null);
+            renderAll();
+        };
+
+
+        {#  Render the Charts#}
+        dc.renderAll();
+        RefreshTable();
+
+
+    });
+
+
+</script>
+
+</body>
+</html>

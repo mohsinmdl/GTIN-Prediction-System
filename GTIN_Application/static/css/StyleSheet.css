@@ -1,0 +1,42 @@
+﻿.top_bar {
+    background-color: darksalmon;
+    padding: 5px 0px;
+}
+
+.mymenu .navbar-default .navbar-nav .active a {
+    background: darksalmon;
+    color: white;
+}
+
+    .mymenu .navbar-default .navbar-nav .active a:hover {
+        background: darksalmon;
+        color: white;
+    }
+
+.mymenu .navbar-default .navbar-nav li a:hover {
+    background: darksalmon;
+    color: white;
+}
+
+
+@media (max-width:1200px) {
+
+   .mymenu .pull-right {
+        float: left !important;
+    }
+}
+
+.our_courses {
+    background: radial-gradient(circle,white,green);
+}
+
+@media (max-width:603px) {
+
+    .our_courses [class*="col-"] {
+        margin-bottom:25px;
+    }
+}
+
+.quicklinks ul li a, .quicklinks h3, .cntcus h3, .cntcus p {
+    color: white
+}
