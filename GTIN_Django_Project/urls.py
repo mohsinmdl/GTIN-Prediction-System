@@ -17,6 +17,6 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 urlpatterns = [
-    url(r'^GTIN_Application/', include('GTIN_Application.urls')), #this line added
+    url(r'', include('GTIN_Application.urls')), #this line added
     url(r'^admin/', admin.site.urls),
 ]
