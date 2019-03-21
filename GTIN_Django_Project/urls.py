@@ -16,7 +16,10 @@ Including another URLconf
 
 from django.conf.urls import include, url
 from django.contrib import admin
+from django.urls import path
+
 urlpatterns = [
+	
     url(r'', include('GTIN_Application.urls')), #this line added
     url(r'^admin/', admin.site.urls),
 ]
