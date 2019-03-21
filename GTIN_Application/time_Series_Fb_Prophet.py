@@ -146,7 +146,7 @@
 import pandas as pd
 import pickle
 import numpy as np
-#from fbprophet import Prophet
+from fbprophet import Prophet
 import warnings
 import matplotlib.pyplot as plt
 from sklearn.metrics import mean_squared_error, r2_score, mean_absolute_error
@@ -610,8 +610,6 @@ def plot_to_check_data_is_clean(df):
 
 def test_stationary(timeseries):
     # Determing rolling statistics
-
-    # rolmean = timeseries.rolling(12).mean()
     rolmean = pd.rolling_mean(timeseries, window=12)
     # Plot rolling statistics:
     # orig = plt.plot(timeseries, color='blue', label='Original')
@@ -622,15 +620,14 @@ def test_stationary(timeseries):
     # plt.show(block=False)
 
     # Perform Augmented Dickey-Fuller test:
+    print('Results of Augmented Dickey-Fuller test:')
+    dftest = adfuller(timeseries)
+    dfoutput = pd.Series(dftest[0:4], index=['Test Statistic', 'p-value', '#Lags Used', 'Number of Observations Used'])
+    for key, value in dftest[4].items():
+        dfoutput['Critical Value (%s)' % key] = value
+    print(dfoutput)
+    return dftest[0], dftest[4]
 
-
-print('Results of Augmented Dickey-Fuller test:')
-dftest = adfuller(timeseries)
-dfoutput = pd.Series(dftest[0:4], index=['Test Statistic', 'p-value', '#Lags Used', 'Number of Observations Used'])
-for key, value in dftest[4].items():
-    dfoutput['Critical Value (%s)' % key] = value
-print(dfoutput)
-return dftest[0], dftest[4]
 
 # - **if Test Statistic value is greater than all the Critical values its mean our data is not Stationary so no need to use Log Transformation or Differencing.**
 
@@ -959,15 +956,15 @@ def full_export_to_csv(forecast, file_path, fixed_index):
     if fixed_index == 0:
         print('Index is :  ')
         print(fixed_index)
-        df_.to_csv('GTIN_Application/static/csv3/FullFuturePredictions.csv', mode='a', encoding='utf-8', index=False)
+        df_.to_csv('GTIN_Application/static/csv3/FullFuturePredictions.csv', mode='a', encoding='utf-8', index=False )
     else:
         print('Indes is gya :  ')
         print(fixed_index)
-        df_.to_csv('GTIN_Application/static/csv3/FullFuturePredictions.csv', mode='a', encoding='utf-8', index=False,
-                   header=False)
+        df_.to_csv('GTIN_Application/static/csv3/FullFuturePredictions.csv', mode='a', encoding='utf-8', index=False, header=False)
 
 
-# # Step 11: Print the Future Predictions to PDF file
+
+# # Step 11: Print the Future Predictions to PDF file 
 
 # **Link** https://tex.stackexchange.com/questions/340349/how-to-print-a-data-frame-from-pandas-using-pylatex
 
@@ -1199,7 +1196,7 @@ def last_Date(file_path, aggregate):
     next = str(next).split()
 
     next = next[3]
-    print('Last Date is ' + next)
+    print('Last Date is '+next)
 
     return next
 
@@ -1208,7 +1205,7 @@ def last_Date(file_path, aggregate):
 
 
 # Hyper parameters
-def all_GTIN_Predictions(file_path, aggregate, no_of_periods, fixed_index):
+def all_GTIN_Predictions(file_path, aggregate, no_of_periods , fixed_index):
     file_path_name = file_path
     file_path = file_path + '.csv'
     sort_by = 'GTINShipDate'
@@ -1291,3 +1288,5 @@ def all_GTIN_Predictions(file_path, aggregate, no_of_periods, fixed_index):
         print(Future_Predictions)
     # Export to CSV
     full_export_to_csv(forecast, file_path_name, fixed_index)
+
+
