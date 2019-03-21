@@ -612,6 +612,7 @@ def test_stationary(timeseries):
     # Determing rolling statistics
 	
 	rolmean = timeseries.rolling(12).mean()
+
     #rolmean = pd.rolling_mean(timeseries, window=12)
     # Plot rolling statistics:
     # orig = plt.plot(timeseries, color='blue', label='Original')
