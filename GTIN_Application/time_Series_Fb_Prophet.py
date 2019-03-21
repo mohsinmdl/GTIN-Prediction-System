@@ -610,9 +610,7 @@ def plot_to_check_data_is_clean(df):
 
 def test_stationary(timeseries):
     # Determing rolling statistics
-	
-    #rolmean = pd.rolling_mean(timeseries, window=12)
-	rolmean = pd.Series(timeseries).rolling(window=12).mean()
+    rolmean = pd.rolling_mean(timeseries, window=12)
     # Plot rolling statistics:
     # orig = plt.plot(timeseries, color='blue', label='Original')
     # mean = plt.plot(rolmean, color='red', label='Rolling Mean')
