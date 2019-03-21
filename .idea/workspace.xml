@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0b1232ed-2743-4fd2-a12a-9c02a711c2de" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GTIN_Application/time_Series_Fb_Prophet.py" beforeDir="false" afterPath="$PROJECT_DIR$/GTIN_Application/time_Series_Fb_Prophet.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,8 +22,8 @@
       <file leaf-file-name="time_Series_Fb_Prophet.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/GTIN_Application/time_Series_Fb_Prophet.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="24">
-              <caret line="619" column="9" selection-start-line="619" selection-start-column="9" selection-end-line="619" selection-end-column="9" />
+            <state relative-caret-position="332">
+              <caret line="613" column="45" lean-forward="true" selection-start-line="613" selection-start-column="45" selection-end-line="613" selection-end-column="45" />
               <folding>
                 <element signature="e#6021#6040#0" expanded="true" />
               </folding>
@@ -248,7 +247,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32917318" />
       <window_info anchor="bottom" id="Event Log" order="13" sideWeight="0.50199205" side_tool="true" weight="0.66926676" />
@@ -599,8 +597,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/GTIN_Application/time_Series_Fb_Prophet.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24">
-          <caret line="619" column="9" selection-start-line="619" selection-start-column="9" selection-end-line="619" selection-end-column="9" />
+        <state relative-caret-position="332">
+          <caret line="613" column="45" lean-forward="true" selection-start-line="613" selection-start-column="45" selection-end-line="613" selection-end-column="45" />
           <folding>
             <element signature="e#6021#6040#0" expanded="true" />
           </folding>
