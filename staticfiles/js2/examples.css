@@ -1,0 +1,44 @@
+html, body {
+	padding: 20px;
+}
+
+#output {
+    font-size: 16px;
+    color: #1d9800;
+    margin-bottom: 25px;
+    text-align: center;
+    height: 25px;
+}
+
+.chart-container {
+    display: inline-block;
+}
+
+#container0 {
+    width: 100%;
+}
+
+#container1 {
+    width: 60%;
+    margin: auto;
+}
+
+#container2 {
+    width: 30%;
+    margin: auto;
+}
+
+#container3 {
+    width: 30%;
+    margin: auto;
+}
+
+.dataTables_wrapper :not(.dt-bootstrap) .paging-info {
+	margin: 0px 25px;
+    float: left;
+}
+
+.dataTables_wrapper :not(.dt-bootstrap) .paging-length {
+	margin: 12px 10px;
+    float: left;
+}

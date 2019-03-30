@@ -635,7 +635,7 @@ def test_stationary(timeseries):
 # - **One of the first tricks to reduce trend and Seasonality can be transformation**
 
 # ### if Data is not Stationary Apply Log Transformation to reduce the Seasonalities and Trends.
-
+        
 # In[354]:
 
 
