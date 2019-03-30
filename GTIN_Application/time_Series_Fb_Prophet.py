@@ -610,9 +610,10 @@ def plot_to_check_data_is_clean(df):
 
 def test_stationary(timeseries):
     # Determing rolling statistics
-    rolmean = pd.rolling_mean(timeseries, window=12)
+    #rolmean = pd.rolling_mean(timeseries, window=12)
+    rolmean = timeseries.rolling(12).mean()
     # Plot rolling statistics:
-    # orig = plt.plot(timeseries, color='blue', label='Original')
+    # orig = plt.plot(timeseries, color='blueg, label='Original')
     # mean = plt.plot(rolmean, color='red', label='Rolling Mean')
     # plt.legend(loc='best')
     # plt.title('Rolling Mean')
@@ -624,7 +625,7 @@ def test_stationary(timeseries):
     dftest = adfuller(timeseries)
     dfoutput = pd.Series(dftest[0:4], index=['Test Statistic', 'p-value', '#Lags Used', 'Number of Observations Used'])
     for key, value in dftest[4].items():
-        dfoutput['Critical Value (%s)' % key] = value
+        dfoutput['Critical Value (%s)' %key] = value
     print(dfoutput)
     return dftest[0], dftest[4]
 

@@ -292,9 +292,6 @@ def index(request):
 
             return HttpResponse(json.dumps(data),content_type="application/json")
 
-
-
-
     else:
         # if post request is not true
         # returing the form template
