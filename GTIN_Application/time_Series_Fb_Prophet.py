@@ -153,7 +153,7 @@ from sklearn.metrics import mean_squared_error, r2_score, mean_absolute_error
 import seaborn as sns
 from scipy import stats
 from statsmodels.tsa.stattools import adfuller
-import pylatex as pl
+#import pylatex as pl
 import os
 
 # In[276]:
@@ -1090,7 +1090,7 @@ def main_method(file_path, aggregate, no_of_periods):
     # Convert the date coloumn into dateTimeIndex coloumn
     dataset = convert_in_DateTime_index(sorted_file_name)
 
-    # Aggregate the data into weekly
+    # Aggregate the data into weekly  # weekly monthly and yearly quart
     aggregated_data = weekly_sample(dataset, aggregate)
 
     # In[782]:
