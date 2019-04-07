@@ -51,9 +51,9 @@ def index(request):
             elif aggregate == 'Monthly':
                 aggregate = 'm'
 
-            print(file_path)
-            print(aggregate)
 
+            print(aggregate)
+            print("output location" + file_path)
             last_Value = time_Series_Fb_Prophet.last_Date(file_path, aggregate)
 
             print(file_path)

@@ -358,7 +358,7 @@ def checkNullValues(df):
     df['Quantity'] = df['Quantity'].replace(0, np.NaN)
     df['GTINShipDate'] = df['GTINShipDate'].replace(0, np.NaN)
 
-    # get the number of missing data points per column
+    # get the number of missing data points per column #NAN
     missing_values_count = df.isnull().sum()
 
     return missing_values_count

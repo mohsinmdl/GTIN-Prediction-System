@@ -3,10 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="0b1232ed-2743-4fd2-a12a-9c02a711c2de" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GTIN_Application/static/csv3/FullFuturePredictions.csv" beforeDir="false" afterPath="$PROJECT_DIR$/GTIN_Application/static/csv3/FullFuturePredictions.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GTIN_Application/static/csv3/GTINPredictions.csv" beforeDir="false" afterPath="$PROJECT_DIR$/GTIN_Application/static/csv3/GTINPredictions.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GTIN_Application/time_Series_Fb_Prophet.py" beforeDir="false" afterPath="$PROJECT_DIR$/GTIN_Application/time_Series_Fb_Prophet.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/.gitkeep.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/GTIN_Application/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/GTIN_Application/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -26,8 +24,8 @@
       <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GTIN_Application/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="22" column="22" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
+            <state relative-caret-position="334">
+              <caret line="24" column="3" selection-start-line="24" selection-start-column="3" selection-end-line="24" selection-end-column="3" />
               <folding>
                 <element signature="e#637#669#0" expanded="true" />
               </folding>
@@ -35,19 +33,52 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/GTIN_Application/views.py">
+      <file leaf-file-name="time_Series_Fb_Prophet.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GTIN_Application/time_Series_Fb_Prophet.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="287" column="8" selection-start-line="287" selection-start-column="8" selection-end-line="287" selection-end-column="8" />
+            <state relative-caret-position="168">
+              <caret line="1208" column="24" selection-start-line="1208" selection-start-column="4" selection-end-line="1208" selection-end-column="24" />
+              <folding>
+                <element signature="e#6021#6040#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/GTIN_Application/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1658">
+              <caret line="108" lean-forward="true" selection-start-line="108" selection-end-line="108" />
+              <folding>
+                <element signature="e#30#66#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="288">
+              <caret line="2009" column="31" selection-start-line="2009" selection-start-column="27" selection-end-line="2009" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index5.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/index5.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="59">
+              <caret line="571" column="66" selection-start-line="571" selection-start-column="66" selection-end-line="571" selection-end-column="66" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GTIN_Django_Project/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
+            <state relative-caret-position="414">
               <caret line="141" selection-start-line="141" selection-end-line="141" />
             </state>
           </provider>
@@ -56,8 +87,8 @@
       <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GTIN_Django_Project/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="22" column="4" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="4" />
+            <state relative-caret-position="420">
+              <caret line="23" column="64" selection-start-line="23" selection-start-column="64" selection-end-line="23" selection-end-column="64" />
               <folding>
                 <element signature="e#645#686#0" expanded="true" />
               </folding>
@@ -78,36 +109,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>dc.ht</find>
-      <find>html</find>
-      <find>dc.h</find>
-      <find>htmll</find>
-      <find>nameChart</find>
-      <find>listOption3</find>
-      <find>listOption4</find>
-      <find>namechart</find>
-      <find>listite</find>
-      <find>gix</find>
-      <find>Element</find>
-      <find>prediction</find>
-      <find>prediction s</find>
-      <find>Start Date</find>
-      <find>Future</find>
-      <find>GTIN Prediction S</find>
-      <find>Majestic</find>
-      <find>title</find>
-      <find>Predictions Record</find>
-      <find>Prediction Record</find>
-      <find>favicon.ico</find>
-      <find>626</find>
-      <find>urls</find>
-      <find>sidebar-icon</find>
       <find>gtin_Slected</find>
       <find>sel_Text</find>
       <find>13</find>
       <find>all</find>
       <find>glyphicons-halflings.png</find>
       <find>bootstrap.min.css</find>
+      <find>time_Series_Fb_Prophet.last_Date</find>
+      <find>aja</find>
+      <find>Prediction</find>
+      <find>Prediction - Start Date ( YYYY-MM-DD )</find>
+      <find>date-Time-Picker</find>
+      <find>loading</find>
+      <find>Processing</find>
+      <find>Please Select Prediction Category</find>
+      <find>panel-title</find>
+      <find>Quantity</find>
+      <find>.ajax</find>
+      <find>example-number-input</find>
+      <find>next(</find>
+      <find>filePath</find>
+      <find>tasks[]</find>
+      <find>file_path</find>
+      <find>test</find>
+      <find>all_GTIN_Predictions</find>
+      <find>.js</find>
+      <find>demolist</find>
+      <find>gtin-Name</find>
+      <find>sectionName</find>
+      <find>prediction-category</find>
+      <find>duration-time</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -131,14 +162,15 @@
         <option value="$PROJECT_DIR$/GTIN_Application/static/js2/dc.css" />
         <option value="$PROJECT_DIR$/GTIN_Application/static/js2/dc.js" />
         <option value="$PROJECT_DIR$/templates/chartsLastFinal.html" />
-        <option value="$PROJECT_DIR$/templates/indexLastFinal.html" />
         <option value="$PROJECT_DIR$/templates/charts.html" />
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/GTIN_Django_Project/settings.py" />
         <option value="$PROJECT_DIR$/procfile" />
-        <option value="$PROJECT_DIR$/GTIN_Application/views.py" />
-        <option value="$PROJECT_DIR$/templates/index.html" />
         <option value="$PROJECT_DIR$/GTIN_Application/urls.py" />
+        <option value="$PROJECT_DIR$/GTIN_Application/views.py" />
+        <option value="$PROJECT_DIR$/venv/Lib/site-packages/django/contrib/admin/static/admin/js/vendor/select2/select2.full.min.js" />
+        <option value="$PROJECT_DIR$/templates/index.html" />
+        <option value="$PROJECT_DIR$/templates/indexLastFinal.html" />
         <option value="$PROJECT_DIR$/GTIN_Application/time_Series_Fb_Prophet.py" />
       </list>
     </option>
@@ -160,7 +192,7 @@
       <path value="$PROJECT_DIR$/venv/Lib/site-packages/matplotlib/backends/web_backend/jquery-ui-1.12.1/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="75" />
     <option name="y" value="44" />
     <option name="width" value="1281" />
@@ -171,7 +203,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -182,12 +213,18 @@
             <path>
               <item name="gtin-pro" type="b2602c69:ProjectViewProjectNode" />
               <item name="gtin-pro" type="462c0819:PsiDirectoryNode" />
+              <item name="GTIN_Application" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="gtin-pro" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gtin-pro" type="462c0819:PsiDirectoryNode" />
               <item name="GTIN_Django_Project" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -300,8 +337,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32917318" />
       <window_info anchor="bottom" id="Event Log" order="13" sideWeight="0.50199205" side_tool="true" weight="0.66926676" />
@@ -309,13 +345,13 @@
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Python Console" order="11" weight="0.32917318" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49800798" weight="0.38034865" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32917318" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49881235" visible="true" weight="0.18374817" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.06656101" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49066213" visible="true" weight="0.18374817" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.37400952" />
       <window_info anchor="right" id="SciView" order="4" sideWeight="0.4804992" weight="0.25896415" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info active="true" id="Structure" order="1" sideWeight="0.50933784" side_tool="true" visible="true" weight="0.18374817" />
       <window_info id="Favorites" order="2" sideWeight="0.5011876" side_tool="true" weight="0.15139443" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -323,7 +359,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" x="0" y="0" width="276" height="572" id="Documentation" order="5" sideWeight="0.5195008" side_tool="true" visible="true" weight="0.022988506" />
-      <window_info anchor="bottom" id="manage.py@GTIN_Django_Project" order="12" weight="0.53090334" />
+      <window_info active="true" anchor="bottom" id="manage.py@GTIN_Django_Project" order="12" visible="true" weight="0.3058637" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Concurrent Activities Diagram" order="14" weight="0.32917318" />
@@ -341,13 +377,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24930">
-          <caret line="1662" column="29" selection-start-line="1662" selection-start-column="29" selection-end-line="1662" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="24930">
@@ -467,13 +496,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GTIN_Application/static/Content/bootstrap.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="5" lean-forward="true" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/GTIN_Application/static/Content/bootstrap.css" />
     <entry file="file://$PROJECT_DIR$/6kg (300-450g)L1.csvsorted.csv" />
     <entry file="file://$PROJECT_DIR$/6kg (300-450g)L1.csv" />
     <entry file="file://$PROJECT_DIR$/55 Bin Giant.csv">
@@ -505,20 +528,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/index4.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="554">
-          <caret line="2158" column="7" selection-start-line="2158" selection-start-column="7" selection-end-line="2158" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/index5.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="59">
-          <caret line="2114" column="25" lean-forward="true" selection-start-line="2114" selection-start-column="25" selection-end-line="2114" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/test.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
@@ -530,13 +539,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="1632" column="12" selection-start-line="1632" selection-start-column="12" selection-end-line="1632" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/FInal.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="2286" column="7" selection-start-line="2286" selection-start-column="7" selection-end-line="2286" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -561,13 +563,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GTIN_Application/static/js2/dc.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="11066" column="30" lean-forward="true" selection-start-line="11066" selection-start-column="30" selection-end-line="11066" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/GTIN_Application/static/js2/dc.js" />
     <entry file="file://$PROJECT_DIR$/GTIN_Application/static/js2/bc.js" />
     <entry file="file://$PROJECT_DIR$/templates/html-legend.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -580,13 +576,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="25785">
           <caret line="1719" selection-start-line="1719" selection-end-line="1719" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/indexLastFinal.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="554">
-          <caret line="2299" column="7" selection-start-line="2299" selection-start-column="7" selection-end-line="2299" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -612,51 +601,95 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GTIN_Django_Project/urls.py">
+    <entry file="file://$PROJECT_DIR$/venv/Lib/site-packages/django/contrib/admin/static/admin/js/vendor/select2/select2.full.min.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="22" column="4" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="4" />
+        <state relative-caret-position="232">
+          <caret line="1" column="3601" selection-start-line="1" selection-start-column="3601" selection-end-line="1" selection-end-column="3601" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/index4.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1718">
+          <caret line="1727" column="49" selection-start-line="1727" selection-start-column="28" selection-end-line="1727" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/FInal.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="267">
+          <caret line="922" column="24" lean-forward="true" selection-start-line="922" selection-start-column="24" selection-end-line="922" selection-end-column="24" />
           <folding>
-            <element signature="e#645#686#0" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#2;n#div#3;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/indexLastFinal.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="1185" selection-start-line="1185" selection-end-line="1185" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GTIN_Application/time_Series_Fb_Prophet.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="1208" column="24" selection-start-line="1208" selection-start-column="4" selection-end-line="1208" selection-end-column="24" />
+          <folding>
+            <element signature="e#6021#6040#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/GTIN_Application/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="22" column="22" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
+        <state relative-caret-position="334">
+          <caret line="24" column="3" selection-start-line="24" selection-start-column="3" selection-end-line="24" selection-end-column="3" />
           <folding>
             <element signature="e#637#669#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GTIN_Application/time_Series_Fb_Prophet.py">
+    <entry file="file://$PROJECT_DIR$/GTIN_Django_Project/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="520">
-          <caret line="637" column="8" selection-start-line="637" selection-start-column="8" selection-end-line="637" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="2286" column="16" lean-forward="true" selection-start-line="2286" selection-start-column="16" selection-end-line="2286" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GTIN_Application/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="287" column="8" selection-start-line="287" selection-start-column="8" selection-end-line="287" selection-end-column="8" />
+        <state relative-caret-position="420">
+          <caret line="23" column="64" selection-start-line="23" selection-start-column="64" selection-end-line="23" selection-end-column="64" />
+          <folding>
+            <element signature="e#645#686#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/GTIN_Django_Project/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
+        <state relative-caret-position="414">
           <caret line="141" selection-start-line="141" selection-end-line="141" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/index5.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="59">
+          <caret line="571" column="66" selection-start-line="571" selection-start-column="66" selection-end-line="571" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="2009" column="31" selection-start-line="2009" selection-start-column="27" selection-end-line="2009" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GTIN_Application/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1658">
+          <caret line="108" lean-forward="true" selection-start-line="108" selection-end-line="108" />
+          <folding>
+            <element signature="e#30#66#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
